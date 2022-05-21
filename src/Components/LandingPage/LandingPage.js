@@ -1,7 +1,12 @@
 import React from "react";
+import Navbar from "../Shared/Navbar";
 
 const LandingPage = () => {
-  return <div>This is home</div>;
+  return (
+    <div>
+      <Navbar></Navbar>
+    </div>
+  );
 };
 
 export default LandingPage;
