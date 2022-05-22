@@ -1,10 +1,12 @@
 import React from "react";
-import Navbar from "../Shared/Navbar";
+import Banner from "../Home/Banner";
+import Business from "../Home/Business";
 
 const LandingPage = () => {
   return (
     <div>
-      <Navbar></Navbar>
+      <Banner></Banner>
+      <Business></Business>
     </div>
   );
 };

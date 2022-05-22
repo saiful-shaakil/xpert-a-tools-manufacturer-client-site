@@ -2,23 +2,28 @@ module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
     extend: {},
+    fontFamily: {
+      pop: ["Poppins", "sans-serif"],
+      lob: ["Lobster", "cursive"],
+      ubu: ["Ubuntu", "sans-serif"],
+    },
   },
   plugins: [require("daisyui")],
   daisyui: {
     themes: [
       {
         mytheme: {
-          primary: "#570DF8",
+          primary: "#ed7966",
 
-          secondary: "#F000B8",
+          secondary: "#f5cac2",
 
-          accent: "#37CDBE",
+          accent: "#fae5df",
 
-          neutral: "#3D4451",
+          neutral: "#303179",
 
           "base-100": "#FFFFFF",
 
-          info: "#3ABFF8",
+          info: "#141850",
 
           success: "#36D399",
 
