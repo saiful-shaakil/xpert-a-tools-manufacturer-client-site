@@ -6,7 +6,7 @@ import {
   faUsersLine,
 } from "@fortawesome/free-solid-svg-icons";
 
-const business = () => {
+const BusinessSummary = () => {
   return (
     <div className="text-center my-24">
       <div>
@@ -44,4 +44,4 @@ const business = () => {
   );
 };
 
-export default business;
+export default BusinessSummary;
