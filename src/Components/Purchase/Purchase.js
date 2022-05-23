@@ -44,12 +44,15 @@ const Purchase = () => {
   const onSubmit = (data) => {
     const placeDetails = {
       name: data.name,
+      productName: product.name,
       email: data.email,
       address: data.address,
       city: data.city,
       zip: data.zip,
       quantity: quantity,
       paid: false,
+      status: "Not Faid",
+      price: product.price,
     };
     fetch(`http://localhost:5000/place-order`, {
       method: "POST",
@@ -60,7 +63,7 @@ const Purchase = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        toast("Your order is placed.");
       });
   };
 
