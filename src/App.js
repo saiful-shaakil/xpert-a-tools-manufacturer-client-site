@@ -8,6 +8,7 @@ import Featured from "./Components/Home/Featured";
 import NewArrivalsProducts from "./Components/Home/NewArrivalsProducts";
 import TopRated from "./Components/Home/TopRated";
 import LandingPage from "./Components/LandingPage/LandingPage";
+import MyPortfolio from "./Components/OtherPage/MyPortfolio";
 import Purchase from "./Components/Purchase/Purchase";
 import NotFound from "./Components/Shared/NotFound";
 import RequireAuth from "./Components/Shared/RequireAuth";
@@ -48,6 +49,7 @@ function App() {
         ></Route>
         <Route path="/register" element={<Register />}></Route>
         <Route path="/my-profile" element={<MyProfile />}></Route>
+        <Route path="/my-portfolio" element={<MyPortfolio />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
