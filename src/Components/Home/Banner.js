@@ -15,11 +15,11 @@ const Banner = () => {
     >
       <Navbar></Navbar>
       <div className="mx-12 mt-48">
-        <h1 class="text-6xl font-bold font-lob">Big Sale</h1>
-        <p class="py-6 text-5xl font-pop">
+        <h1 className="text-6xl font-bold font-lob">Big Sale</h1>
+        <p className="py-6 text-5xl font-pop">
           Hand Tools <br /> Electric Saw & Power Saw
         </p>
-        <button class="btn btn-primary">Shop Now</button>
+        <button className="btn btn-primary">Shop Now</button>
       </div>
     </div>
   );

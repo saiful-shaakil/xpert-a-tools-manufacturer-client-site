@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import LoadingPage from "../Shared/LoadingPage";
+import Confirm from "./Confirm";
 
 const MyOrders = () => {
   const [user, loading] = useAuthState(auth);
   const [orders, setOrders] = useState([]);
+  const [confirm, setConfirm] = useState(null);
   useEffect(() => {
     fetch(`http://localhost:5000/my-orders/${user?.email}`)
       .then((res) => res.json())
@@ -15,9 +17,9 @@ const MyOrders = () => {
     return <LoadingPage></LoadingPage>;
   }
   //to cancel order
-  const cancelOrder = (id) => {
-    console.log(id);
-  };
+  // const cancelOrder = (id) => {
+  //   console.log(id);
+  // };
   //to pay
   const payNow = (id) => {
     console.log(id);
@@ -120,9 +122,13 @@ const MyOrders = () => {
                                 class="absolute inset-0 bg-red-200 opacity-50 rounded-full"
                               ></span>
                               <span class="relative">
-                                <button onClick={() => cancelOrder(order._id)}>
+                                <label
+                                  htmlFor="delete-form-modal"
+                                  onClick={() => setConfirm(order)}
+                                  className="cursor-pointer"
+                                >
                                   Cancel
-                                </button>
+                                </label>
                               </span>
                             </span>
                           </td>
@@ -132,6 +138,13 @@ const MyOrders = () => {
                   </table>
                 </div>
               </div>
+              {confirm && orders && (
+                <Confirm
+                  order={confirm}
+                  allOrder={orders}
+                  setOrders={setOrders}
+                ></Confirm>
+              )}
             </div>
           </div>
         }
