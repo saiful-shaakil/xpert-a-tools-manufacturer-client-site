@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Drill Machine",
+    "img": "https://i.ibb.co/H4qMHFF/drill-machine.jpg",
+    "desc": "A drill is a tool used for making round holes or driving fasteners. It is fitted with a bit, either a drill or driverchuck. with hand-operated types dramatically decreasing in popularity and cordless battery-powered ones proliferating.",
+    "minimunOrder": 100,
+    "available": 1950,
+    "price": 150
+  },
+  {
+    "name": "Nut(Hardware)",
+    "img": "https://i.ibb.co/f28rwkR/nut.jpg",
+    "desc": "A nut is a type of fastener with a threaded hole. Nuts are almost always used in conjunction with a mating bolt to fasten multiple parts together. The two partners are kept together by a combination of their threads' friction (with slight elastic deformation), a slight stretching of the bolt, and compression of the parts to be held together.",
+    "minimunOrder": 200,
+    "available": 2050,
+    "price": 50
+  },
+  {
+    "name": "Paint Roller",
+    "img": "https://i.ibb.co/H2ScDfy/paint-roller.jpg",
+    "desc": "A paint roller is a paint application tool used for painting large flat surfaces rapidly and efficiently.The paint roller typically consists of two parts: a roller frame, and a roller cover. The roller cover absorbs the paint and transfers it to the painted surface, the roller frame attaches to the roller cover.",
+    "minimunOrder": 100,
+    "available": 850,
+    "price": 100
+  },
+  {
+    "name": "Staple Gun",
+    "img": "https://i.ibb.co/HFdpnNN/staple-gun.jpg",
+    "desc": "A staple gun or powered stapler is a hand-held machine used to drive heavy metal staples into wood, plastic, or masonry. Staple guns are used for many different applications and to affix a variety of materials, including insulation, house wrap, roofing, wiring, carpeting.",
+    "minimunOrder": 100,
+    "available": 1250,
+    "price": 220
+  },
+  {
+    "name": "Shovel",
+    "img": "https://i.ibb.co/mBdPgpV/shovel.jpg",
+    "desc": "A shovel is a tool for digging, lifting, and moving bulk materials, such as soil, coal, gravel, snow, sand, or ore.Most shovels are hand tools consisting of a broad blade fixed to a medium-length handle.",
+    "minimunOrder": 100,
+    "available": 1150,
+    "price": 250
+  },
+  {
+    "name": "Circular Saw",
+    "img": "https://i.ibb.co/Zfg81gC/circular-saw.jpg",
+    "desc": "A circular saw is a power-saw using a toothed or abrasive disc or blade to cut different materials using a rotary motion spinning around an arbor. A hole saw and ring saw also use a rotary motion but are different from a circular saw. Circular saws may also be loosely used for the blade itself.",
+    "minimunOrder": 100,
+    "available": 750,
+    "price": 250
+  }
+]
