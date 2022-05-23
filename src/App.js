@@ -5,11 +5,14 @@ import "react-toastify/dist/ReactToastify.css";
 import Blogs from "./Components/Home/Blogs";
 import LandingPage from "./Components/LandingPage/LandingPage";
 import NotFound from "./Components/Shared/NotFound";
+import Register from "./Components/User/Register";
 function App() {
   return (
     <div>
       <Routes>
         <Route path="/" element={<LandingPage />}></Route>
+        <Route path="/blogs" element={<Blogs />}></Route>
+        <Route path="/register" element={<Register />}></Route>
         <Route path="/blogs" element={<Blogs />}></Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
