@@ -9,6 +9,7 @@ import NotFound from "./Components/Shared/NotFound";
 import AddReview from "./Components/User/AddReview";
 import Login from "./Components/User/Login";
 import MyOrders from "./Components/User/MyOrders";
+import MyProfile from "./Components/User/MyProfile";
 import Register from "./Components/User/Register";
 import UpdateMyProfile from "./Components/User/UpdateMyProfile";
 function App() {
@@ -29,6 +30,7 @@ function App() {
           ></Route>
         </Route>
         <Route path="/register" element={<Register />}></Route>
+        <Route path="/my-profile" element={<MyProfile />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
