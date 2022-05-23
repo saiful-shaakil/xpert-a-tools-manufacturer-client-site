@@ -64,7 +64,7 @@ const Login = () => {
         <div className="card-body">
           <h2 className="text-2xl font-semibold text-center">Login</h2>
           <form onSubmit={formSubmit}>
-            <label htmlFor="email">Email</label>
+            <label htmlhtmlFor="email">Email</label>
             <input
               type="email"
               ref={useEmail}
@@ -73,7 +73,7 @@ const Login = () => {
               id="email"
             />
             <br />
-            <label htmlFor="password">Password</label>
+            <label htmlhtmlFor="password">Password</label>
             <input
               type="password"
               className="my-2 border-2 py-1 px-3 w-full rounded-md"

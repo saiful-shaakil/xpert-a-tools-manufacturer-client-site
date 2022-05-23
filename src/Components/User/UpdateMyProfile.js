@@ -25,7 +25,7 @@ const UpdateMyProfile = () => {
             </div>
             <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
               <div className="col-span-full sm:col-span-3">
-                <label for="firstname" className="text-sm">
+                <label htmlFor="firstname" className="text-sm">
                   First name
                 </label>
                 <input
@@ -36,7 +36,7 @@ const UpdateMyProfile = () => {
                 />
               </div>
               <div className="col-span-full sm:col-span-3">
-                <label for="lastname" className="text-sm">
+                <label htmlFor="lastname" className="text-sm">
                   Last name
                 </label>
                 <input
@@ -47,7 +47,7 @@ const UpdateMyProfile = () => {
                 />
               </div>
               <div className="col-span-full sm:col-span-3">
-                <label for="email" className="text-sm">
+                <label htmlFor="email" className="text-sm">
                   Email
                 </label>
                 <input
@@ -58,7 +58,7 @@ const UpdateMyProfile = () => {
                 />
               </div>
               <div className="col-span-full">
-                <label for="address" className="text-sm">
+                <label htmlFor="address" className="text-sm">
                   Address
                 </label>
                 <input
@@ -69,7 +69,7 @@ const UpdateMyProfile = () => {
                 />
               </div>
               <div className="col-span-full sm:col-span-2">
-                <label for="city" className="text-sm">
+                <label htmlFor="city" className="text-sm">
                   City
                 </label>
                 <input
@@ -80,7 +80,7 @@ const UpdateMyProfile = () => {
                 />
               </div>
               <div className="col-span-full sm:col-span-2">
-                <label for="state" className="text-sm">
+                <label htmlFor="state" className="text-sm">
                   State / Province
                 </label>
                 <input
@@ -91,7 +91,7 @@ const UpdateMyProfile = () => {
                 />
               </div>
               <div className="col-span-full sm:col-span-2">
-                <label for="zip" className="text-sm">
+                <label htmlFor="zip" className="text-sm">
                   ZIP / Postal
                 </label>
                 <input
@@ -109,7 +109,7 @@ const UpdateMyProfile = () => {
             </div>
             <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
               <div className="col-span-full sm:col-span-3">
-                <label for="username" className="text-sm">
+                <label htmlFor="username" className="text-sm">
                   Username
                 </label>
                 <input
@@ -120,7 +120,7 @@ const UpdateMyProfile = () => {
                 />
               </div>
               <div className="col-span-full sm:col-span-3">
-                <label for="website" className="text-sm">
+                <label htmlFor="website" className="text-sm">
                   Website
                 </label>
                 <input
@@ -131,7 +131,7 @@ const UpdateMyProfile = () => {
                 />
               </div>
               <div className="col-span-full">
-                <label for="bio" className="text-sm">
+                <label htmlFor="bio" className="text-sm">
                   Bio
                 </label>
                 <textarea
@@ -142,7 +142,7 @@ const UpdateMyProfile = () => {
                 ></textarea>
               </div>
               <div className="col-span-full">
-                <label for="bio" className="text-sm">
+                <label htmlFor="bio" className="text-sm">
                   Photo
                 </label>
                 <div className="flex items-center space-x-2">

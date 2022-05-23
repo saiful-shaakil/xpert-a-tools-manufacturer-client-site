@@ -44,7 +44,7 @@ const Register = () => {
         <div className="card-body">
           <h2 className="text-2xl font-semibold text-center">Register</h2>
           <form onSubmit={formSubmit}>
-            <label htmlFor="name">Name</label>
+            <label htmlhtmlFor="name">Name</label>
             <input
               type="text"
               className="my-2 border-2 py-1 px-3 w-full rounded-md"
@@ -52,7 +52,7 @@ const Register = () => {
               id="name"
             />
             <br />
-            <label htmlFor="email">Email</label>
+            <label htmlhtmlFor="email">Email</label>
             <input
               type="email"
               className="my-2 border-2 py-1 px-3 w-full rounded-md"
@@ -60,7 +60,7 @@ const Register = () => {
               id="email"
             />
             <br />
-            <label htmlFor="password">Password</label>
+            <label htmlhtmlFor="password">Password</label>
             <input
               type="password"
               className="my-2 border-2 py-1 px-3 w-full rounded-md"
@@ -68,7 +68,7 @@ const Register = () => {
               id="password"
             />
             <br />
-            <label htmlFor="confPassword">Confirm Password</label>
+            <label htmlhtmlFor="confPassword">Confirm Password</label>
             <input
               type="password"
               className="my-2 border-2 py-1 px-3 w-full rounded-md"
