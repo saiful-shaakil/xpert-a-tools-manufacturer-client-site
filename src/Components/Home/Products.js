@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from "react";
+import { Outlet } from "react-router-dom";
+import CustomLink from "../Shared/CustomLink";
 import EachProduct from "./EachProduct";
 
 const Products = () => {
-  const [products, setProducts] = useState([]);
-  useEffect(() => {
-    fetch("products.json")
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
-  }, []);
   return (
-    <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-5 mx-12">
-      {products.map((each) => (
-        <EachProduct product={each}></EachProduct>
-      ))}
+    <div>
+      <div
+        style={{ textDecoration: "none" }}
+        className="flex items-center text-2xl font-pop justify-center my-10"
+      >
+        <CustomLink to="/top-rated">Top Rated</CustomLink>
+        <CustomLink to="/" className="mx-5">
+          Featured
+        </CustomLink>
+        <CustomLink to="/new-arrivals">New Arrivals</CustomLink>
+      </div>
+      <Outlet />
     </div>
   );
 };
