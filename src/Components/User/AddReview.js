@@ -1,6 +1,37 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
+import auth from "../../firebase.init";
+import LoadingPage from "../Shared/LoadingPage";
 
 const AddReview = () => {
+  const [user, loading] = useAuthState(auth);
+  if (loading) {
+    return <LoadingPage></LoadingPage>;
+  }
+  const addReview = () => {
+    const rating = document.getElementById("rate").value;
+    const desc = document.getElementById("desc").value;
+    const review = {
+      name: user.displayName,
+      mail: user.email,
+      photo: user.photoURL,
+      rating: rating,
+      desc: desc,
+    };
+    fetch("http://localhost:5000/add-review", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(review),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        toast.success("Your review is successfully added in our home page.");
+      });
+  };
   return (
     <div className="mx-10 mt-6">
       <div>
@@ -20,18 +51,24 @@ const AddReview = () => {
               <div className="w-full space-y-6">
                 <div className="w-full">
                   <div className=" relative ">
-                    <input
-                      type="text"
-                      id="title"
-                      className=" rounded-lg border-2 py-1 px-2 flex-1 appearance-none  border-gray-300 w-full bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none"
-                      placeholder="Review Ratings"
-                    />
+                    <p className="font-bold">Rating:</p>
+                    <select
+                      id="rate"
+                      class="select w-full select-bordered max-w-xs"
+                    >
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option selected>5</option>
+                    </select>
                   </div>
                 </div>
 
                 <div className="w-full">
+                  <p className="font-bold">Review:</p>
                   <textarea
-                    id="bio"
+                    id="desc"
                     placeholder="Your Review"
                     style={{ resize: "none" }}
                     className="w-full border-2 py-1 px-2 rounded-md focus:outline-none dark:border-gray-700 dark:text-gray-900"
@@ -39,11 +76,12 @@ const AddReview = () => {
                 </div>
                 <div>
                   <span className="block w-full rounded-md shadow-sm">
-                    <input
-                      type="submit"
-                      value="Add"
+                    <button
+                      onClick={addReview}
                       className="py-2 px-4 btn btn-primary w-full text-center font-semibold shadow-md focus:outline-none  rounded-lg "
-                    ></input>
+                    >
+                      Add Review
+                    </button>
                   </span>
                 </div>
               </div>
