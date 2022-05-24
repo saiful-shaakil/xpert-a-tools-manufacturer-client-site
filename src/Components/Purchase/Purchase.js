@@ -27,17 +27,19 @@ const Purchase = () => {
   }
   // to increase and decrease the order amount
   const increaseQuantity = () => {
-    if (quantity < availableQuantity) {
-      setQuantity(quantity + 1);
+    const nQuantity = parseInt(quantity);
+    if (nQuantity < availableQuantity) {
+      setQuantity(nQuantity + 1);
     } else {
       toast("You are reaching more than available quantity.");
     }
   };
   const decreaseQuantity = () => {
-    if (quantity > product.minimumOrder) {
-      setQuantity(quantity - 1);
+    const nQuantity = parseInt(quantity);
+    if (nQuantity > product.minimumOrder) {
+      setQuantity(nQuantity - 1);
     } else {
-      toast(`You have to order at least ${quantity} ${product.name}`);
+      toast(`You have to order at least ${nQuantity} ${product.name}`);
     }
   };
   //placing the order

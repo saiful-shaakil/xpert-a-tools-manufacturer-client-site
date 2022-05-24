@@ -1,6 +1,33 @@
 import React from "react";
+import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 const AddProduct = () => {
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data) => {
+    const newProduct = {
+      name: data.name,
+      img: data.photo,
+      desc: data.desc,
+      minimumOrder: data.minimum,
+      available: data.available,
+      price: data.price,
+      type: "newArrivals",
+    };
+    fetch("http://localhost:5000/new-product", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newProduct),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged === true) {
+          toast.success("New product is added in new arrivals list.");
+        }
+      });
+  };
   return (
     <div className="mx-10 mt-6">
       <div>
@@ -17,7 +44,7 @@ const AddProduct = () => {
               </div>
             </div>
             <div className="mt-6">
-              <form>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <input
                   className="border-2 rounded-lg w-full py-2 px-4 "
                   type="text"
@@ -25,6 +52,7 @@ const AddProduct = () => {
                   id="name"
                   placeholder="Product Name"
                   required
+                  {...register("name")}
                 />
                 <input
                   className="border-2 rounded-lg my-3 w-full py-2 px-4 "
@@ -33,6 +61,7 @@ const AddProduct = () => {
                   id="price"
                   placeholder="Product Price"
                   required
+                  {...register("price")}
                 />
                 <input
                   className="border-2 rounded-lg my-3 w-full py-2 px-4 "
@@ -41,6 +70,7 @@ const AddProduct = () => {
                   id="available"
                   placeholder="Available Quantity"
                   required
+                  {...register("available")}
                 />
                 <input
                   className="border-2 rounded-lg my-3 w-full py-2 px-4 "
@@ -49,6 +79,16 @@ const AddProduct = () => {
                   id="minimum"
                   placeholder="Minimum Order Quantity"
                   required
+                  {...register("minimum")}
+                />
+                <input
+                  className="border-2 rounded-lg my-3 w-full py-2 px-4 "
+                  type="text"
+                  name=""
+                  id="photo"
+                  placeholder="Photo URL"
+                  required
+                  {...register("photo")}
                 />
                 <textarea
                   className="border-2 rounded-lg my-3 w-full py-2 px-4 "
@@ -58,6 +98,7 @@ const AddProduct = () => {
                   cols="10"
                   rows="5"
                   placeholder="Product Description"
+                  {...register("desc")}
                 ></textarea>
                 <input
                   className="btn btn-primary w-full"
