@@ -1,3 +1,24 @@
+## Live Website
+
+## Quick Overview
+
+- This is a website of a manufacturer company who makes tools such as power saw, drill machine, electric saw, stapler machine
+- Login and user-based authentication with JWT token
+- User can order/purchase products
+- User can add review and see the review in review section
+- User can see what products they ordered in order section
+- Admin can add,delete,shipped products and make a user into admin
+
+## Technology Used in this site
+
+- React JS
+- Node JS
+- Express JS
+- MongoDB database
+- React Query
+- React Form
+- Tailwind
+
 ## Available Scripts
 
 In the project directory, you can run:
