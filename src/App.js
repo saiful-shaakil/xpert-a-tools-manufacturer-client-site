@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import AddProduct from "./Components/Admin/AddProduct";
 import AllOrders from "./Components/Admin/AllOrders";
 import AllProducts from "./Components/Admin/AllProducts";
+import MakeAdmin from "./Components/Admin/MakeAdmin";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import Blogs from "./Components/Home/Blogs";
 import Featured from "./Components/Home/Featured";
@@ -52,6 +53,10 @@ function App() {
           <Route
             path="/dashboard/all-products"
             element={<AllProducts></AllProducts>}
+          ></Route>
+          <Route
+            path="/dashboard/all-user"
+            element={<MakeAdmin></MakeAdmin>}
           ></Route>
         </Route>
         <Route
