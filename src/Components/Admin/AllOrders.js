@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 const AllOrders = () => {
   const [orders, setOrders] = useState([]);
@@ -6,9 +7,17 @@ const AllOrders = () => {
     fetch("http://localhost:5000/all-orders")
       .then((res) => res.json())
       .then((data) => setOrders(data));
-  }, []);
+  }, [orders]);
   const shipped = (id) => {
-    console.log(id);
+    fetch(`http://localhost:5000/shipped-order/${id}`, {
+      method: "PUT",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged === true) {
+          toast.success("Product is shipped.");
+        }
+      });
   };
   return (
     <div className="mx-10 mt-6">
