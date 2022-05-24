@@ -1,31 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
-import auth from "../../firebase.init";
-import LoadingPage from "../Shared/LoadingPage";
-import Confirm from "./Confirm";
 
-const MyOrders = () => {
-  const [user, loading] = useAuthState(auth);
+const AllOrders = () => {
   const [orders, setOrders] = useState([]);
-  const [confirm, setConfirm] = useState(null);
   useEffect(() => {
-    fetch(`http://localhost:5000/my-orders/${user?.email}`)
+    fetch("http://localhost:5000/all-orders")
       .then((res) => res.json())
       .then((data) => setOrders(data));
-  }, [user]);
-  if (loading) {
-    return <LoadingPage></LoadingPage>;
-  }
-
-  const payNow = (id) => {
+  }, []);
+  const shipped = (id) => {
     console.log(id);
   };
   return (
     <div className="mx-10 mt-6">
-      <h1 className="text-2xl font-semibold font-ubu">Your Orders: </h1>
+      <h1 className="text-2xl font-semibold font-ubu">All Orders: </h1>
       <div>
         {
-          <div class="container mx-auto px-4 sm:px-8 max-w-3xl">
+          <div class="container mx-auto px-4 sm:px-8">
             <div class="py-8">
               <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                 <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
@@ -48,7 +38,7 @@ const MyOrders = () => {
                           scope="col"
                           class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal"
                         >
-                          Per Price
+                          Buyer Name
                         </th>
                         <th
                           scope="col"
@@ -90,7 +80,7 @@ const MyOrders = () => {
                           </td>
                           <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                             <p class="text-gray-900 whitespace-no-wrap">
-                              ${order.price}
+                              {order.name}
                             </p>
                           </td>
                           <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
@@ -105,9 +95,9 @@ const MyOrders = () => {
                                 class="absolute inset-0 bg-green-200 opacity-50 rounded-full"
                               ></span>
                               <span class="relative">
-                                <button onClick={() => payNow(order._id)}>
-                                  Pay Now
-                                </button>
+                                {order.shippingStatus === "Pending"
+                                  ? "Pending"
+                                  : "Shipped"}
                               </span>
                             </span>
                           </td>
@@ -118,13 +108,13 @@ const MyOrders = () => {
                                 class="absolute inset-0 bg-red-200 opacity-50 rounded-full"
                               ></span>
                               <span class="relative">
-                                <label
-                                  htmlFor="delete-form-modal"
-                                  onClick={() => setConfirm(order)}
-                                  className="cursor-pointer"
+                                <button
+                                  onClick={() => shipped(order._id)}
+                                  disabled={order.shippingStatus === "Shipped"}
+                                  className=""
                                 >
-                                  Cancel
-                                </label>
+                                  Shipped
+                                </button>
                               </span>
                             </span>
                           </td>
@@ -134,13 +124,6 @@ const MyOrders = () => {
                   </table>
                 </div>
               </div>
-              {confirm && orders && (
-                <Confirm
-                  order={confirm}
-                  allOrder={orders}
-                  setOrders={setOrders}
-                ></Confirm>
-              )}
             </div>
           </div>
         }
@@ -149,4 +132,4 @@ const MyOrders = () => {
   );
 };
 
-export default MyOrders;
+export default AllOrders;

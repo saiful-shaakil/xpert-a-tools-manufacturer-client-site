@@ -53,6 +53,7 @@ const Purchase = () => {
       zip: data.zip,
       quantity: quantity,
       paid: false,
+      shippingStatus: "Pending",
       status: "Not Faid",
       price: product.price,
     };
