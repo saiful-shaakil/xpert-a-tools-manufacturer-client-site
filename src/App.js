@@ -4,6 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AddProduct from "./Components/Admin/AddProduct";
 import AllOrders from "./Components/Admin/AllOrders";
+import AllProducts from "./Components/Admin/AllProducts";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import Blogs from "./Components/Home/Blogs";
 import Featured from "./Components/Home/Featured";
@@ -47,6 +48,10 @@ function App() {
           <Route
             path="/dashboard/all-orders"
             element={<AllOrders></AllOrders>}
+          ></Route>
+          <Route
+            path="/dashboard/all-products"
+            element={<AllProducts></AllProducts>}
           ></Route>
         </Route>
         <Route
