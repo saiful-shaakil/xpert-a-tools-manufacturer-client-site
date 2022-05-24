@@ -26,7 +26,7 @@ const MyProfile = () => {
             <p className="text-gray-800 dark:text-white text-xl font-medium">
               {user.displayName}
             </p>
-            <p className="text-gray-400 text-xs">New Buyer</p>
+            <p className="text-gray-400 text-xs">{user.email}</p>
           </div>
           <div className="rounded-lg bg-pink-100 dark:bg-white p-2 w-full mb-4">
             <div className="flex items-center justify-between text-xs text-gray-400 dark:text-black">

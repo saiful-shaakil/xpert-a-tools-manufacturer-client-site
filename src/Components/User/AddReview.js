@@ -24,20 +24,11 @@ const AddReview = () => {
                       type="text"
                       id="title"
                       className=" rounded-lg border-2 py-1 px-2 flex-1 appearance-none  border-gray-300 w-full bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none"
-                      placeholder="Review Title"
+                      placeholder="Review Ratings"
                     />
                   </div>
                 </div>
-                <div className="w-full">
-                  <div className=" relative ">
-                    <input
-                      type="text"
-                      id="location"
-                      className=" rounded-lg border-2 py-1 px-2 flex-1 appearance-none border-gray-300 w-full bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none"
-                      placeholder="Your location"
-                    />
-                  </div>
-                </div>
+
                 <div className="w-full">
                   <textarea
                     id="bio"

@@ -4,6 +4,7 @@ import BusinessSummary from "../Home/BusinessSummary";
 import Footer from "../Home/Footer";
 import NewArrivals from "../Home/NewArrivals";
 import Products from "../Home/Products";
+import Reviews from "../Home/Reviews";
 
 const LandingPage = () => {
   return (
@@ -12,6 +13,7 @@ const LandingPage = () => {
       <Products></Products>
       <NewArrivals></NewArrivals>
       <BusinessSummary></BusinessSummary>
+      <Reviews></Reviews>
       <Footer></Footer>
     </div>
   );
