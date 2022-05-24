@@ -9,7 +9,10 @@ const Reviews = () => {
       .then((data) => setReviews(data));
   }, []);
   return (
-    <div className="mx-10">
+    <div className="mx-72 my-10">
+      <h1 className="text-4xl font-ubu font-semibold text-center my-10 text-primary">
+        Testimonials
+      </h1>
       <div className="relative w-full flex gap-4 py-6 overflow-x-auto">
         {reviews.map((review) => (
           <EachReview key={review._id} review={review}></EachReview>

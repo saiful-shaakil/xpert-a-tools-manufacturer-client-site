@@ -5,8 +5,8 @@ const EachReview = ({ review }) => {
   return (
     <div className="h-48 aspect-video rounded-sm object-cover object-center dark:bg-gray-500">
       <div class="bg-white dark:bg-gray-800 w-72 shadow-lg mx-auto text-center rounded-xl p-4">
-        <h1>Ratings: {rating}/5</h1>
-        <p class="text-gray-600 dark:text-white">
+        <h1 className="font-ubu">Ratings: {rating}/5</h1>
+        <p class="text-gray-600 font-pop dark:text-white">
           <span class="font-bold text-indigo-500 text-lg">“</span>
           {desc}
           <span class="font-bold text-indigo-500 text-lg">”</span>
