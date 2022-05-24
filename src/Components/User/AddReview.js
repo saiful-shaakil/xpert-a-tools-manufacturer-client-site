@@ -54,7 +54,7 @@ const AddReview = () => {
                     <p className="font-bold">Rating:</p>
                     <select
                       id="rate"
-                      class="select w-full select-bordered max-w-xs"
+                      className="select w-full select-bordered max-w-xs"
                     >
                       <option>1</option>
                       <option>2</option>
