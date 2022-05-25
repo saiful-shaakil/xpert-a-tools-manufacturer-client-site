@@ -11,31 +11,31 @@ const Navbar = () => {
   };
   const menu = (
     <>
-      <li className="text-2xl text-primary font-pop">
+      <li className="lg:text-xl 2xl:text-2xl text-primary font-pop">
         <Link to="/">Home</Link>
       </li>
-      <li className="text-2xl text-info font-pop">
+      <li className="lg:text-xl 2xl:text-2xl text-info font-pop">
         <Link to="/blogs">Blogs</Link>
       </li>
-      <li className="text-2xl text-info font-pop">
+      <li className="lg:text-xl 2xl:text-2xl text-info font-pop">
         <Link to="/my-portfolio">My Portfolio</Link>
       </li>
       {user && (
-        <li className="text-2xl text-info font-pop">
+        <li className="lg:text-xl 2xl:text-2xl text-info font-pop">
           <Link to="/dashboard">Dasboard</Link>
         </li>
       )}
       {user && (
-        <li className="text-2xl text-info font-pop">
+        <li className="lg:text-xl 2xl:text-2xl text-info font-pop">
           <Link to="/my-profile">{user.displayName}</Link>
         </li>
       )}
       {user ? (
-        <li className="text-2xl font-pop text-error">
+        <li className="lg:text-xl 2xl:text-2xl font-pop text-error">
           <button onClick={logOut}>Sign Out</button>
         </li>
       ) : (
-        <li className="text-2xl text-info font-pop">
+        <li className="lg:text-xl 2xl:text-2xl text-info font-pop">
           <Link to="/login">Login</Link>
         </li>
       )}
@@ -63,7 +63,7 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex="0"
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow rounded-box"
+            className="menu menu-compact dropdown-content mt-3 p-2 shadow rounded-box "
           >
             {menu}
           </ul>

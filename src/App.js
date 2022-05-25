@@ -25,91 +25,83 @@ import MyOrders from "./Components/User/MyOrders";
 import MyProfile from "./Components/User/MyProfile";
 import Register from "./Components/User/Register";
 import UpdateMyProfile from "./Components/User/UpdateMyProfile";
-import { QueryClient, QueryClientProvider, useQuery } from "react-query";
-
-const queryClient = new QueryClient();
 function App() {
   return (
     <div>
-      <QueryClientProvider client={queryClient}>
-        <Navbar></Navbar>
-        <Routes>
-          <Route path="/" element={<LandingPage />}>
-            <Route index element={<Featured />}></Route>
-            <Route path="/top-rated" element={<TopRated />}></Route>
-            <Route
-              path="/new-arrivals"
-              element={<NewArrivalsProducts />}
-            ></Route>
-          </Route>
-          <Route path="/blogs" element={<Blogs />}></Route>
+      <Navbar></Navbar>
+      <Routes>
+        <Route path="/" element={<LandingPage />}>
+          <Route path="/featured" element={<Featured />}></Route>
+          <Route path="/top-rated" element={<TopRated />}></Route>
+          <Route index element={<NewArrivalsProducts />}></Route>
+        </Route>
+        <Route path="/blogs" element={<Blogs />}></Route>
+        <Route
+          path="/dashboard"
+          element={
+            <RequireAuth>
+              <Dashboard />
+            </RequireAuth>
+          }
+        >
+          <Route index element={<UpdateMyProfile></UpdateMyProfile>}></Route>
           <Route
-            path="/dashboard"
-            element={
-              <RequireAuth>
-                <Dashboard />
-              </RequireAuth>
-            }
-          >
-            <Route index element={<UpdateMyProfile></UpdateMyProfile>}></Route>
-            <Route
-              path="/dashboard/my-orders"
-              element={<MyOrders></MyOrders>}
-            ></Route>
-            <Route
-              path="/dashboard/add-review"
-              element={<AddReview></AddReview>}
-            ></Route>
-            <Route
-              path="/dashboard/add-products"
-              element={
-                <RequireAdmin>
-                  <AddProduct></AddProduct>
-                </RequireAdmin>
-              }
-            ></Route>
-            <Route
-              path="/dashboard/all-orders"
-              element={
-                <RequireAdmin>
-                  <AllOrders></AllOrders>
-                </RequireAdmin>
-              }
-            ></Route>
-            <Route
-              path="/dashboard/all-products"
-              element={
-                <RequireAdmin>
-                  <AllProducts></AllProducts>
-                </RequireAdmin>
-              }
-            ></Route>
-            <Route
-              path="/dashboard/all-user"
-              element={
-                <RequireAdmin>
-                  <MakeAdmin></MakeAdmin>
-                </RequireAdmin>
-              }
-            ></Route>
-          </Route>
+            path="/dashboard/my-orders"
+            element={<MyOrders></MyOrders>}
+          ></Route>
           <Route
-            path="/purchase/:id"
+            path="/dashboard/add-review"
+            element={<AddReview></AddReview>}
+          ></Route>
+          <Route
+            path="/dashboard/add-products"
             element={
-              <RequireAuth>
-                <Purchase></Purchase>
-              </RequireAuth>
+              <RequireAdmin>
+                <AddProduct></AddProduct>
+              </RequireAdmin>
             }
           ></Route>
-          <Route path="/register" element={<Register />}></Route>
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/my-profile" element={<MyProfile />}></Route>
-          <Route path="/my-portfolio" element={<MyPortfolio />}></Route>
-          <Route path="/payment/:id" element={<PayNow />}></Route>
-          <Route path="*" element={<NotFound />}></Route>
-        </Routes>
-        <ToastContainer />
-      </QueryClientProvider>
+          <Route
+            path="/dashboard/all-orders"
+            element={
+              <RequireAdmin>
+                <AllOrders></AllOrders>
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="/dashboard/all-products"
+            element={
+              <RequireAdmin>
+                <AllProducts></AllProducts>
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="/dashboard/all-user"
+            element={
+              <RequireAdmin>
+                <MakeAdmin></MakeAdmin>
+              </RequireAdmin>
+            }
+          ></Route>
+        </Route>
+        <Route
+          path="/purchase/:id"
+          element={
+            <RequireAuth>
+              <Purchase></Purchase>
+            </RequireAuth>
+          }
+        ></Route>
+        <Route path="/register" element={<Register />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/my-profile" element={<MyProfile />}></Route>
+        <Route path="/my-portfolio" element={<MyPortfolio />}></Route>
+        <Route path="/payment/:id" element={<PayNow />}></Route>
+        <Route path="*" element={<NotFound />}></Route>
+      </Routes>
+      <ToastContainer />
     </div>
   );
 }

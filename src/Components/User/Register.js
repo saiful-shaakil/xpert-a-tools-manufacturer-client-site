@@ -43,7 +43,7 @@ const Register = () => {
     navigate(from, { replace: true });
   }
   return (
-    <div className="flex justify-center mt-10 mb-20">
+    <div className="flex justify-center pt-20 mb-20">
       <div className="card w-96 bg-base-100 shadow-xl">
         <div className="card-body">
           <h2 className="text-2xl font-semibold text-center">Register</h2>

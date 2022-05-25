@@ -8,13 +8,13 @@ const Products = () => {
     <div>
       <div
         style={{ textDecoration: "none" }}
-        className="flex items-center text-2xl font-pop justify-center my-10"
+        className="flex items-center text-[16px] md:text-2xl font-pop justify-center my-10"
       >
         <CustomLink to="/top-rated">Top Rated</CustomLink>
-        <CustomLink to="/" className="mx-5">
-          Featured
+        <CustomLink className="mx-5" to="/">
+          New Arrivals
         </CustomLink>
-        <CustomLink to="/new-arrivals">New Arrivals</CustomLink>
+        <CustomLink to="/featured">Featured</CustomLink>
       </div>
       <div className="flex justify-center items-center">
         <div className="border-b-4 mb-10 w-1/2 border-primary"></div>

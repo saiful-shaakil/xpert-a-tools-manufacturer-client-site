@@ -8,7 +8,7 @@ const EachProduct = ({ product }) => {
     navigate(`/purchase/${id}`);
   };
   return (
-    <div className="bg-white mx-auto p-2 sm:p-4 sm:h-64 rounded-2xl shadow-lg flex flex-col sm:flex-row lg:flex-row-reverse gap-5 select-none mb-8 laptop">
+    <div className="bg-white mx-auto p-2 sm:p-4 sm:h-64 rounded-2xl shadow-lg flex flex-col sm:flex-row w-72 md:w-[420px] lg:flex-row-reverse gap-5 select-none mb-8">
       <div className="sm:h-40 rounded-xl ">
         <img style={{ height: "200px" }} src={img} alt="" />
       </div>

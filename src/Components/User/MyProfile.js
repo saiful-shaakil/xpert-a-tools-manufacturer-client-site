@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
@@ -6,6 +6,18 @@ import LoadingPage from "../Shared/LoadingPage";
 
 const MyProfile = () => {
   const [user, loading] = useAuthState(auth);
+  const [profile, setProfile] = useState([]);
+  useEffect(() => {
+    const token = localStorage.getItem("accessToken");
+    fetch(`http://localhost:5000/my-info/${user?.email}`, {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => setProfile(data));
+  }, [user]);
   if (loading) {
     return <LoadingPage></LoadingPage>;
   }
@@ -47,6 +59,22 @@ const MyProfile = () => {
                 <span className="text-black dark:text-indigo-500 font-bold">
                   0.0
                 </span>
+              </p>
+            </div>
+          </div>
+          <div className="rounded-lg bg-pink-100 dark:bg-white p-2 w-full mb-4">
+            <div className=" text-sm text-black dark:text-black">
+              <p className="">
+                <span className="font-bold">Instituation:</span>
+                {profile.instituation ? profile.instituation : "Unknown"}
+              </p>
+              <p className=" my-3">
+                <span className="font-bold">City: </span>
+                <span>{profile.city ? profile.city : "Unknown"}</span>
+              </p>
+              <p className="">
+                <span className="font-bold">LinkedIn Profile Link: </span>{" "}
+                {profile.linkedIn ? profile.linkedIn : "Unknown"}
               </p>
             </div>
           </div>

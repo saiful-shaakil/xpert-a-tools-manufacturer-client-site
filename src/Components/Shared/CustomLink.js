@@ -8,6 +8,7 @@ function CustomLink({ children, to, ...props }) {
   return (
     <div>
       <Link
+        className={match ? "text-info" : "text-primary"}
         style={{
           textDecoration: match ? "underline" : "none",
         }}

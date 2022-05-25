@@ -5,23 +5,29 @@ const EachReview = ({ review }) => {
   return (
     <div className="h-80 aspect-video rounded-sm object-cover object-center dark:bg-gray-500">
       <div className="bg-white dark:bg-gray-800 shadow-lg mx-auto text-center rounded-xl p-4">
-        <h1 className="font-ubu text-3xl">Ratings: {rating}/5</h1>
-        <p className="text-gray-600 text-4xl font-pop dark:text-white">
-          <span className="font-bold text-indigo-500 text-5xl">“</span>
+        <h1 className="font-ubu text-xl md:text-3xl lg:text-4xl">
+          Ratings: {rating}/5
+        </h1>
+        <p className="text-gray-600 text-xl md:text-4xl lg:text-5xl font-pop dark:text-white">
+          <span className="font-bold text-indigo-500 text-xl md:text-5xl">
+            “
+          </span>
           {desc}
-          <span className="font-bold text-indigo-500 text-5xl">”</span>
+          <span className="font-bold text-indigo-500 text-xl md:text-5xl">
+            ”
+          </span>
         </p>
         <div className="flex items-center justify-center mt-4">
           <a href="#" className="block relative">
             <img
-              style={{ height: "100px", width: "100px" }}
+              // style={{ height: "100px", width: "100px" }}
               alt="profil"
               src={photo}
-              className="mx-auto object-cover rounded-full h-10 w-10 "
+              className="mx-auto object-cover rounded-full h-10 w-10 md:h-20 md:w-20 lg:h-[100px] lg:w-[100px]"
             />
           </a>
           <div className="flex flex-col ml-2 justify-between">
-            <span className="font-semibold text-indigo-500 text-2xl">
+            <span className="font-semibold text-indigo-500 text-sm md:text-2xl lg:text-3xl">
               {name}
             </span>
           </div>

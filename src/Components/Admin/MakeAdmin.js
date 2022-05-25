@@ -36,8 +36,8 @@ const MakeAdmin = () => {
           {users.map((each, index) => (
             <tr key={each._id}>
               <th>
-                <div class="avatar">
-                  <div class="mask mask-squircle w-12 h-12">
+                <div className="avatar">
+                  <div className="mask mask-squircle w-12 h-12">
                     <img src={each.img} alt="Avatar Tailwind CSS Component" />
                   </div>
                 </div>
