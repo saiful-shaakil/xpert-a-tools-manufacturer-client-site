@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import LoadingPage from "../Shared/LoadingPage";
 import Confirm from "./Confirm";
@@ -8,6 +9,7 @@ const MyOrders = () => {
   const [user, loading] = useAuthState(auth);
   const [orders, setOrders] = useState([]);
   const [confirm, setConfirm] = useState(null);
+  const navigate = useNavigate();
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
     fetch(`http://localhost:5000/my-orders/${user?.email}`, {
@@ -24,7 +26,7 @@ const MyOrders = () => {
   }
 
   const payNow = (id) => {
-    console.log(id);
+    navigate(`/payment/${id}`);
   };
   return (
     <div className="mx-10 mt-6">

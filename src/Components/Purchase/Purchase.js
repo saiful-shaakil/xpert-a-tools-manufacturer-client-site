@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 import LoadingPage from "../Shared/LoadingPage";
@@ -13,6 +13,7 @@ const Purchase = () => {
   const [quantity, setQuantity] = useState(0);
   const [availableQuantity, setAvailableQuantity] = useState(0);
   const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
   useEffect(() => {
     fetch(`http://localhost:5000/purchase/${id.id}`)
       .then((res) => res.json())
@@ -67,11 +68,12 @@ const Purchase = () => {
       .then((res) => res.json())
       .then((data) => {
         toast("Your order is placed.");
+        navigate("/dashboard/my-orders");
       });
   };
 
   return (
-    <div className="mx-20 mt-16 flex justify-around">
+    <div className="mx-20 pt-28 flex justify-around">
       <div className="w-1/2">
         <h1 className="text-2xl font-semibold font-ubu">Item you're buying:</h1>
         <div className=" p-6 rounded-md shadow-md dark:bg-gray-900 dark:text-gray-50">

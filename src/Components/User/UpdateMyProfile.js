@@ -1,25 +1,48 @@
+import { async } from "@firebase/util";
 import React from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { useForm } from "react-hook-form";
+import { useAuthState, useUpdateProfile } from "react-firebase-hooks/auth";
+import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 import LoadingPage from "../Shared/LoadingPage";
 
 const UpdateMyProfile = () => {
-  const { register, handleSubmit } = useForm();
+  const [updateProfile, updating, errorOfProf] = useUpdateProfile(auth);
   const [user, loading] = useAuthState(auth);
   if (loading) {
     return <LoadingPage></LoadingPage>;
   }
-  const onSubmit = (data) => {
-    const info = {
-      name: data.name,
-      instituation: data.instituation,
-      mobile: data.phone,
-      linkedIn: data.linkedIn,
-      address: data.address,
-      city: data.city,
-      zip: data.zip,
-    };
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const name = document.getElementById("name").value;
+    const instituation = document.getElementById("instituation").value;
+    const mobile = document.getElementById("phone").value;
+    const linkedIn = document.getElementById("linkedIn").value;
+    const city = document.getElementById("city").value;
+    const zip = document.getElementById("zip").value;
+    if (name && instituation && mobile && linkedIn && city && zip) {
+      const info = {
+        name: name,
+        instituation: instituation,
+        mobile: mobile,
+        linkedIn: linkedIn,
+        city: city,
+        zip: zip,
+      };
+      updateProfile({ displayName: name });
+      fetch(`http://localhost:5000/update-user-info/${user?.email}`, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+        body: JSON.stringify(info),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          toast.success("Your data is updated.");
+          window.location.reload();
+        });
+    }
   };
   return (
     <div>
@@ -27,12 +50,7 @@ const UpdateMyProfile = () => {
         <h1>Update Your Profile Information:</h1>
       </div>
       <section className="p-6 dark:bg-gray-800 dark:text-gray-50">
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          novalidate=""
-          action=""
-          className="container flex flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid"
-        >
+        <form className="container flex flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid">
           <div className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900">
             <div className="space-y-2 col-span-full lg:col-span-1">
               <p className="font-medium">Personal Inormation</p>
@@ -43,27 +61,14 @@ const UpdateMyProfile = () => {
                   Name
                 </label>
                 <input
-                  id="firstname"
+                  id="name"
                   type="text"
                   required
-                  {...register("firstname")}
-                  placeholder="First name"
+                  placeholder=""
                   className="w-full border-2 py-1 px-2 rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"
                 />
               </div>
-              <div className="col-span-full sm:col-span-3">
-                <label htmlFor="email" className="text-sm">
-                  Email
-                </label>
-                <input
-                  id="email"
-                  required
-                  {...register("email")}
-                  type="email"
-                  placeholder="Email"
-                  className="w-full border-2 py-1 px-2 rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"
-                />
-              </div>
+
               <div className="col-span-full">
                 <label htmlFor="address" className="text-sm">
                   Education Instituation Name
@@ -72,7 +77,6 @@ const UpdateMyProfile = () => {
                   id="instituation"
                   required
                   type="text"
-                  {...register("instituation")}
                   placeholder=""
                   className="w-full border-2 py-1 px-2 rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"
                 />
@@ -85,7 +89,6 @@ const UpdateMyProfile = () => {
                   id="city"
                   type="text"
                   required
-                  {...register("city")}
                   placeholder=""
                   className="w-full border-2 py-1 px-2 rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"
                 />
@@ -97,7 +100,6 @@ const UpdateMyProfile = () => {
                 <input
                   id="state"
                   required
-                  {...register("state")}
                   type="text"
                   placeholder=""
                   className="w-full border-2 py-1 px-2 rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"
@@ -110,7 +112,6 @@ const UpdateMyProfile = () => {
                 <input
                   id="zip"
                   required
-                  {...register("zip")}
                   type="text"
                   placeholder=""
                   className="w-full border-2 py-1 px-2 rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"
@@ -124,7 +125,6 @@ const UpdateMyProfile = () => {
                   id="linkedIn"
                   required
                   type="text"
-                  {...register("linkedIn")}
                   placeholder="LinkedIn Account Link"
                   className="w-full border-2 py-1 px-2 rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"
                 />
@@ -137,7 +137,6 @@ const UpdateMyProfile = () => {
                   id="phone"
                   required
                   type="text"
-                  {...register("phone")}
                   placeholder="+880"
                   className="w-full border-2 py-1 px-2 rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"
                 />
@@ -161,11 +160,9 @@ const UpdateMyProfile = () => {
                 </div>
               </div> */}
             </div>
-            <input
-              className="w-24 ml-72 btn btn-primary"
-              type="submit"
-              value="Update"
-            />
+            <button className="w-24 ml-72 btn btn-primary" onClick={onSubmit}>
+              Update
+            </button>
           </div>
         </form>
       </section>

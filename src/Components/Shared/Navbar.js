@@ -22,7 +22,7 @@ const Navbar = () => {
       </li>
       {user && (
         <li className="text-2xl text-info font-pop">
-          <Link to="/dashboard text-info">Dasboard</Link>
+          <Link to="/dashboard">Dasboard</Link>
         </li>
       )}
       {user && (

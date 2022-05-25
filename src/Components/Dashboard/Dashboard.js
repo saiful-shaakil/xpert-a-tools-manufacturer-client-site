@@ -13,11 +13,7 @@ const Dashboard = () => {
     return <LoadingPage></LoadingPage>;
   }
   return (
-    <div>
-      {" "}
-      <div>
-        <Navbar></Navbar>
-      </div>
+    <div className="pt-20">
       <div className="drawer drawer-mobile">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content">
