@@ -31,7 +31,7 @@ const AllProducts = () => {
               <td>{each.name}</td>
               <td>{each.available}</td>
               <td>{each.price}</td>
-              <td className="px-5 py-5 border-b border-red-200 bg-white text-sm">
+              <td className="px-5 py-5  bg-white text-sm">
                 <span className="relative inline-block px-3 py-1 font-semibold text-red-900 leading-tight">
                   <span
                     aria-hidden="true"

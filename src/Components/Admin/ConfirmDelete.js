@@ -30,7 +30,7 @@ const ConfirmDelete = ({ product, allProduct, setAll }) => {
       <div className="modal modal-bottom sm:modal-middle">
         <div className="modal-box">
           <h3 className="font-bold text-lg">
-            Are you sure you want to cancel your order?
+            Are you sure you want to delete this product?
           </h3>
           <div className="modal-action">
             <label for="delete-product-form-modal" className="btn btn-success">

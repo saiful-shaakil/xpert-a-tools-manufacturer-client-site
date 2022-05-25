@@ -7,10 +7,12 @@ const useToken = (user) => {
     if (email) {
       const userDetails = {
         mail: email,
-        name: user?.user?.displayName,
+        name: user?.user?.displayName || "New User",
         admin: false,
-        role: "user",
-        img: user?.user?.photoURL,
+        role: "User",
+        img:
+          user?.user?.photoURL ||
+          "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png",
       };
       fetch(`http://localhost:5000/add-user/${email}`, {
         method: "PUT",
