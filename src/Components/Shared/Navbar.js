@@ -11,34 +11,31 @@ const Navbar = () => {
   };
   const menu = (
     <>
-      <li className="text-2xl">
+      <li className="text-2xl text-primary font-pop">
         <Link to="/">Home</Link>
       </li>
-      <li className="text-2xl">
-        <Link to="/reviews">Reviews</Link>
-      </li>
-      <li className="text-2xl">
+      <li className="text-2xl text-info font-pop">
         <Link to="/blogs">Blogs</Link>
       </li>
-      <li className="text-2xl">
+      <li className="text-2xl text-info font-pop">
         <Link to="/my-portfolio">My Portfolio</Link>
       </li>
       {user && (
-        <li className="text-2xl">
-          <Link to="/dashboard">Dasboard</Link>
+        <li className="text-2xl text-info font-pop">
+          <Link to="/dashboard text-info">Dasboard</Link>
         </li>
       )}
       {user && (
-        <li className="text-2xl">
+        <li className="text-2xl text-info font-pop">
           <Link to="/my-profile">{user.displayName}</Link>
         </li>
       )}
       {user ? (
-        <li className="text-2xl">
+        <li className="text-2xl font-pop text-error">
           <button onClick={logOut}>Sign Out</button>
         </li>
       ) : (
-        <li className="text-2xl">
+        <li className="text-2xl text-info font-pop">
           <Link to="/login">Login</Link>
         </li>
       )}
@@ -75,7 +72,8 @@ const Navbar = () => {
           to="/"
           className="btn btn-ghost text-5xl font-semibold normal-case italic"
         >
-          <span className="text-primary">X</span> pert
+          <span className="text-primary">X</span>{" "}
+          <span className="text-info">pert</span>
         </Link>
       </div>
       <div className="navbar-end hidden lg:flex" style={{ width: "70%" }}>

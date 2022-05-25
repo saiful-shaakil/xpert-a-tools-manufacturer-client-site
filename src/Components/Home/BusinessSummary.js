@@ -11,9 +11,9 @@ const BusinessSummary = () => {
     <div className="text-center my-24">
       <div>
         <h1 className="uppercase text-7xl text-primary font-pop">
-          We Believe in quality
+          Quality is our first priority
         </h1>{" "}
-        <h2 className="uppercase text-6xl text-primary font-ubu">We Have</h2>
+        <h2 className="uppercase text-6xl text-primary font-pop">We Have</h2>
       </div>
       <div className="stats text-5xl font-pop stats-vertical lg:stats-horizontal mt-10">
         <div className="stat ">

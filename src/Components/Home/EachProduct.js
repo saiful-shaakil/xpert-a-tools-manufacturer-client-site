@@ -32,7 +32,7 @@ const EachProduct = ({ product }) => {
           <div className=" w-40 sm:h-8  rounded-full ml-auto">
             <button
               type="button"
-              className="px-8 font-semibold border rounded bg-gray-700 text-white"
+              className="px-8 font-semibold rounded btn-primary text-white"
               onClick={() => purchaseButton(_id)}
             >
               Purchase
