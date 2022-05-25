@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   useSendPasswordResetEmail,
@@ -9,9 +9,9 @@ import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 import LoadingPage from "../Shared/LoadingPage";
 import useToken from "../../Hooks/useToken";
-import useAdmin from "../../Hooks/useAdmin";
 
 const Login = () => {
+  const [showError, setShowError] = useState("");
   //to navigate the user
   const navigate = useNavigate();
   const location = useLocation();
@@ -43,6 +43,12 @@ const Login = () => {
     if (email && password) {
       signInWithEmailAndPassword(email, password);
     }
+    if (error || errorOfEmail || errorOfGoog) {
+      return setShowError(
+        error?.message || errorOfEmail?.message || errorOfGoog?.message
+      );
+    }
+    //to show error
   };
   //to sign in by google
   const signInByGoogle = () => {
@@ -86,6 +92,9 @@ const Login = () => {
             />
             <br />
             <button onClick={forgetPassword}>Forget Password?</button>
+            <p className="my-2 text-red-600" id="error">
+              {showError}
+            </p>
             <input
               type="submit"
               className="btn btn-primary uppercase font-bold w-full mt-2 text-white"

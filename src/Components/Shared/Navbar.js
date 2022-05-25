@@ -45,7 +45,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-gray-700 bg-opacity-100 text-white px-4 lg:px-10">
+    <div className="navbar fixed z-50 text-black px-4 lg:px-10">
       <div className="navbar-start" style={{ width: "30%" }}>
         <div className="dropdown">
           <label tabIndex="0" className="btn btn-ghost lg:hidden">
@@ -75,7 +75,7 @@ const Navbar = () => {
           to="/"
           className="btn btn-ghost text-5xl font-semibold normal-case italic"
         >
-          Xpert
+          <span className="text-primary">X</span> pert
         </Link>
       </div>
       <div className="navbar-end hidden lg:flex" style={{ width: "70%" }}>

@@ -16,6 +16,9 @@ const Products = () => {
         </CustomLink>
         <CustomLink to="/new-arrivals">New Arrivals</CustomLink>
       </div>
+      <div className="flex justify-center items-center">
+        <div className="border-b-4 mb-10 w-1/2 border-primary"></div>
+      </div>
       <Outlet />
     </div>
   );

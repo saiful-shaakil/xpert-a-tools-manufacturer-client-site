@@ -14,6 +14,7 @@ import TopRated from "./Components/Home/TopRated";
 import LandingPage from "./Components/LandingPage/LandingPage";
 import MyPortfolio from "./Components/OtherPage/MyPortfolio";
 import Purchase from "./Components/Purchase/Purchase";
+import Navbar from "./Components/Shared/Navbar";
 import NotFound from "./Components/Shared/NotFound";
 import RequireAdmin from "./Components/Shared/RequireAdmin";
 import RequireAuth from "./Components/Shared/RequireAuth";
@@ -26,6 +27,7 @@ import UpdateMyProfile from "./Components/User/UpdateMyProfile";
 function App() {
   return (
     <div>
+      <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<LandingPage />}>
           <Route index element={<Featured />}></Route>
