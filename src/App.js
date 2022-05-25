@@ -15,6 +15,7 @@ import LandingPage from "./Components/LandingPage/LandingPage";
 import MyPortfolio from "./Components/OtherPage/MyPortfolio";
 import Purchase from "./Components/Purchase/Purchase";
 import NotFound from "./Components/Shared/NotFound";
+import RequireAdmin from "./Components/Shared/RequireAdmin";
 import RequireAuth from "./Components/Shared/RequireAuth";
 import AddReview from "./Components/User/AddReview";
 import Login from "./Components/User/Login";
@@ -51,19 +52,35 @@ function App() {
           ></Route>
           <Route
             path="/dashboard/add-products"
-            element={<AddProduct></AddProduct>}
+            element={
+              <RequireAdmin>
+                <AddProduct></AddProduct>
+              </RequireAdmin>
+            }
           ></Route>
           <Route
             path="/dashboard/all-orders"
-            element={<AllOrders></AllOrders>}
+            element={
+              <RequireAdmin>
+                <AllOrders></AllOrders>
+              </RequireAdmin>
+            }
           ></Route>
           <Route
             path="/dashboard/all-products"
-            element={<AllProducts></AllProducts>}
+            element={
+              <RequireAdmin>
+                <AllProducts></AllProducts>
+              </RequireAdmin>
+            }
           ></Route>
           <Route
             path="/dashboard/all-user"
-            element={<MakeAdmin></MakeAdmin>}
+            element={
+              <RequireAdmin>
+                <MakeAdmin></MakeAdmin>
+              </RequireAdmin>
+            }
           ></Route>
         </Route>
         <Route

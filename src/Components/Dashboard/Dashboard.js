@@ -32,31 +32,37 @@ const Dashboard = () => {
         </div>
         <div className="drawer-side">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-          <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
-            <li>
-              <Link to="/dashboard"> Update My Profile</Link>
-            </li>
-            <li>
-              <Link to="/dashboard/my-orders"> My Orders</Link>
-            </li>
-            <li>
-              <Link to="/dashboard/add-review"> Add a Review</Link>
-            </li>
-            <li>
-              <Link to="/dashboard/add-products"> Add a Product</Link>
-            </li>
-            <li>
-              <Link to="/dashboard/all-orders"> Manage All Orders</Link>
-            </li>
-            <li>
-              <Link to="/dashboard/all-products"> Manage All Products</Link>
-            </li>
-            {admin && (
+          {admin ? (
+            <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
+              <li>
+                <Link to="/dashboard"> Update My Profile</Link>
+              </li>
+              <li>
+                <Link to="/dashboard/add-products"> Add a Product</Link>
+              </li>
+              <li>
+                <Link to="/dashboard/all-orders"> Manage All Orders</Link>
+              </li>
+              <li>
+                <Link to="/dashboard/all-products"> Manage All Products</Link>
+              </li>
               <li>
                 <Link to="/dashboard/all-user"> Make Admin</Link>
               </li>
-            )}
-          </ul>
+            </ul>
+          ) : (
+            <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
+              <li>
+                <Link to="/dashboard"> Update My Profile</Link>
+              </li>
+              <li>
+                <Link to="/dashboard/my-orders"> My Orders</Link>
+              </li>
+              <li>
+                <Link to="/dashboard/add-review"> Add a Review</Link>
+              </li>
+            </ul>
+          )}
         </div>
       </div>
     </div>
