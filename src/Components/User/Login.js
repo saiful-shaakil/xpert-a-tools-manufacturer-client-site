@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 import LoadingPage from "../Shared/LoadingPage";
 import useToken from "../../Hooks/useToken";
+import useAdmin from "../../Hooks/useAdmin";
 
 const Login = () => {
   //to navigate the user
