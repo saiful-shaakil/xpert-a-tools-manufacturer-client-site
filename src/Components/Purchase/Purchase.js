@@ -50,7 +50,7 @@ const Purchase = () => {
       productName: product.name,
       email: data.email,
       address: data.address,
-      city: data.city,
+      phone: data.mobile,
       zip: data.zip,
       quantity: quantity,
       paid: false,
@@ -73,8 +73,8 @@ const Purchase = () => {
   };
 
   return (
-    <div className="mx-20 pt-28 flex justify-around">
-      <div className="w-1/2">
+    <div className="mx-20 pt-28 flex flex-col lg:flex-row justify-around">
+      <div className="w-full lg:w-1/2">
         <h1 className="text-2xl font-semibold font-ubu">Item you're buying:</h1>
         <div className=" p-6 rounded-md shadow-md dark:bg-gray-900 dark:text-gray-50">
           <img
@@ -115,7 +115,7 @@ const Purchase = () => {
           </div>
         </div>
       </div>
-      <div className="w-1/3">
+      <div className="w-full lg:w-1/3">
         <h1 className="text-3xl font-semibold font-ubu">Your information:</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="col-span-full sm:col-span-3">
@@ -156,14 +156,14 @@ const Purchase = () => {
             />
           </div>
           <div className="col-span-full sm:col-span-2">
-            <label htmlFor="city" className="text-sm">
-              City
+            <label htmlFor="mobile" className="text-sm">
+              Mobile
             </label>
             <input
-              id="city"
+              id="mobile"
               type="text"
               required
-              {...register("city")}
+              {...register("mobile")}
               placeholder=""
               className="w-full border-2 py-1 px-2 rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"
             />

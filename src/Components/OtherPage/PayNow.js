@@ -37,21 +37,26 @@ const PayNow = () => {
   return (
     <div className="pt-36 mx-20">
       <div className="">
-        <div className="shadow-lg rounded-2xl w-96 mx-auto p-4 bg-white relative overflow-hidden">
+        <div className="shadow-lg rounded-2xl w-80 md:w-96 mx-auto p-4 bg-white relative overflow-hidden">
           <div className="w-4/6">
             <p className=" text-lg font-pop font-bold text-primary mb-2">
               Hello! {order.name}
             </p>
             <p className="text-info text-sm mb-2">
-              {`You ordered product ${order.productName} ${order.quantity} is ready. Pay now to get your product at home as soon as possible.`}
+              You ordered product{" "}
+              <span className="text-primary">
+                {order.productName} {order.quantity}
+              </span>{" "}
+              pcs is ready. Pay now to get your product at home as soon as
+              possible
             </p>
-            <p className="text-indigo-500 text-xl font-ubu">
+            <p className="text-info text-xl font-ubu">
               Total Price: ${parseInt(order.quantity) * parseInt(order.price)}
             </p>
           </div>
         </div>
       </div>
-      <div>
+      <div className="w-full">
         <Elements stripe={stripePromise}>
           <PaymentForm orderDet={order} />
         </Elements>

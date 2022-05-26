@@ -72,6 +72,10 @@ const MyProfile = () => {
                 <span className="font-bold">City: </span>
                 <span>{profile.city ? profile.city : "Unknown"}</span>
               </p>
+              <p className=" mb-3">
+                <span className="font-bold">Mobile: </span>
+                <span>{profile.mobile ? profile.mobile : "Unknown"}</span>
+              </p>
               <p className="">
                 <span className="font-bold">LinkedIn Profile Link: </span>{" "}
                 {profile.linkedIn ? profile.linkedIn : "Unknown"}
@@ -79,7 +83,7 @@ const MyProfile = () => {
             </div>
           </div>
           <Link
-            to="/dashboard"
+            to="/update-my-profile"
             type="button"
             className="py-2 px-4 btn btn-primary w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
           >

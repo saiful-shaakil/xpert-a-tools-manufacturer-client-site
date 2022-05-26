@@ -92,7 +92,7 @@ const PaymentForm = ({ orderDet }) => {
   };
 
   return (
-    <div className="w-2/3 md:w-1/2 mx-auto my-10">
+    <div className="w-80 md:w-1/2 mx-auto my-10">
       <form className="border-lg" onSubmit={handleSubmit}>
         <CardElement
           options={{

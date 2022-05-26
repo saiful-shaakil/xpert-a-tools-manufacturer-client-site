@@ -44,7 +44,7 @@ function App() {
             </RequireAuth>
           }
         >
-          <Route index element={<UpdateMyProfile></UpdateMyProfile>}></Route>
+          <Route index element={<MyProfile></MyProfile>}></Route>
           <Route
             path="/dashboard/my-orders"
             element={<MyOrders></MyOrders>}
@@ -104,6 +104,7 @@ function App() {
         ></Route>
         <Route path="/register" element={<Register />}></Route>
         <Route path="/login" element={<Login />}></Route>
+        <Route path="/update-my-profile" element={<UpdateMyProfile />}></Route>
         <Route path="/my-profile" element={<MyProfile />}></Route>
         <Route path="/my-portfolio" element={<MyPortfolio />}></Route>
         <Route path="*" element={<NotFound />}></Route>

@@ -17,7 +17,7 @@ const BusinessSummary = () => {
           We Have
         </h2>
       </div>
-      <div className="stats text-3xl md:text-5xl font-pop stats-vertical lg:stats-horizontal mt-10">
+      <div className="stats text-3xl text-info md:text-5xl font-pop stats-vertical lg:stats-horizontal mt-10">
         <div className="stat ">
           <div className="stat-title opacity-100">
             <FontAwesomeIcon icon={faCartShopping} />

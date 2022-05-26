@@ -60,9 +60,9 @@ const Dashboard = () => {
               </li>
             </ul>
           ) : (
-            <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
+            <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-info font-pop">
               <li>
-                <Link to="/dashboard"> Update My Profile</Link>
+                <Link to="/dashboard">My Profile</Link>
               </li>
               <li>
                 <Link to="/dashboard/my-orders"> My Orders</Link>

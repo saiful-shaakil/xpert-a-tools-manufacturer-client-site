@@ -50,7 +50,7 @@ const UpdateMyProfile = () => {
   };
   return (
     <div>
-      <div className="mx-10 mt-7 text-primary font-ubu text-2xl">
+      <div className="mx-10 pt-32 text-primary font-ubu text-2xl">
         <h1>Update Your Profile Information:</h1>
       </div>
       <section className="p-6 dark:bg-gray-800 dark:text-gray-50">
@@ -162,7 +162,10 @@ const UpdateMyProfile = () => {
                 </div>
               </div> */}
             </div>
-            <button className="w-24 ml-72 btn btn-primary" onClick={onSubmit}>
+            <button
+              className="w-24 lg:ml-96 btn btn-primary"
+              onClick={onSubmit}
+            >
               Update
             </button>
           </div>
