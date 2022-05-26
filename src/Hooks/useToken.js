@@ -10,7 +10,7 @@ const useToken = (user) => {
         name: user?.user?.displayName || "New User",
         img:
           user?.user?.photoURL ||
-          "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png",
+          "https://cdn-icons-png.flaticon.com/512/149/149071.png",
       };
       fetch(`https://still-mesa-94038.herokuapp.com/add-user/${email}`, {
         method: "PUT",

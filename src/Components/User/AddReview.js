@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
@@ -7,16 +7,20 @@ import LoadingPage from "../Shared/LoadingPage";
 
 const AddReview = () => {
   const [user, loading] = useAuthState(auth);
-  if (loading) {
+  const [isLoading, setIsLoading] = useState(false);
+  if (loading || isLoading) {
     return <LoadingPage></LoadingPage>;
   }
   const addReview = () => {
+    setIsLoading(true);
     const rating = document.getElementById("rate").value;
     const desc = document.getElementById("desc").value;
     const review = {
       name: user.displayName,
       mail: user.email,
-      photo: user.photoURL,
+      photo:
+        user.photoURL ||
+        "https://cdn-icons-png.flaticon.com/512/149/149071.png",
       rating: rating,
       desc: desc,
     };
@@ -29,6 +33,7 @@ const AddReview = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        setIsLoading(false);
         toast.success("Your review is successfully added in our home page.");
       });
   };

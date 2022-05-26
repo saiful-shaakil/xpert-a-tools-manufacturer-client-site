@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
   return (
     <footer className="px-4 divide-y dark:bg-coolGray-800 dark:text-coolGray-100">
-      <div className="container text-info flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
+      <div className="container text-info font-pop flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
         <div className="lg:w-1/3">
           <a
             rel="noopener noreferrer"
@@ -141,7 +141,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="py-6 text-info text-sm text-center dark:text-coolGray-400">
+      <div className="py-6 text-info font-ubu text-sm text-center dark:text-coolGray-400">
         © 2022 Xpert Co. All rights reserved.
       </div>
     </footer>
