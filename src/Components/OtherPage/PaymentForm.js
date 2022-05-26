@@ -5,14 +5,18 @@ import {
   useStripe,
   useElements,
 } from "@stripe/react-stripe-js";
-import { async } from "@firebase/util";
+import { toast } from "react-toastify";
+import LoadingPage from "../Shared/LoadingPage";
 
 const PaymentForm = ({ orderDet }) => {
   const stripe = useStripe();
   const elements = useElements();
   const [cardError, setCardError] = useState("");
+  const [paymentSuccess, setPaymentSuccess] = useState("");
+  const [transactionId, setTransactionId] = useState("");
   const [clientSecret, setClientSecret] = useState("");
-  const { price, quantity } = orderDet;
+  const [isLoading, setIsLoading] = useState(true);
+  const { price, quantity, name, email, _id } = orderDet;
 
   useEffect(() => {
     const totalPrice = parseInt(price) * parseInt(quantity);
@@ -22,11 +26,17 @@ const PaymentForm = ({ orderDet }) => {
         "content-type": "application/json",
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
-      body: JSON.stringify(totalPrice),
+      body: JSON.stringify({ totalPrice }),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        setIsLoading(false);
+        setClientSecret(data.clientSecret);
+      });
   }, []);
+  if (isLoading) {
+    return <LoadingPage></LoadingPage>;
+  }
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!stripe || !elements) {
@@ -47,7 +57,37 @@ const PaymentForm = ({ orderDet }) => {
       setCardError(error.message);
     } else {
       setCardError("");
-      console.log("[PaymentMethod]", paymentMethod);
+    }
+
+    const { paymentIntent, error: errorOfIntent } =
+      await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: card,
+          billing_details: {
+            name: name,
+            email: email,
+          },
+        },
+      });
+    if (errorOfIntent) {
+      setIsLoading(false);
+      setCardError(errorOfIntent?.message);
+    } else {
+      setIsLoading(true);
+      setPaymentSuccess("Congrats! Your payment is success.");
+      setTransactionId(paymentIntent.id);
+      fetch(`http://localhost:5000/update-order/${_id}`, {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+        body: JSON.stringify({ transId: paymentIntent.id }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setIsLoading(false);
+        });
     }
   };
 
@@ -73,12 +113,13 @@ const PaymentForm = ({ orderDet }) => {
         <button
           className="btn btn-sm btn-success"
           type="submit"
-          disabled={!stripe}
+          disabled={!stripe || !clientSecret}
         >
           Pay
         </button>
       </form>
       {cardError && <p className="text-red-600">{cardError}</p>}
+      {paymentSuccess && <p className="text-green-600">{paymentSuccess}</p>}
     </div>
   );
 };

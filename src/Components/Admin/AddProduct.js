@@ -86,7 +86,7 @@ const AddProduct = () => {
                   type="text"
                   name=""
                   id="photo"
-                  placeholder="Photo URL"
+                  placeholder="Product Photo URL"
                   required
                   {...register("photo")}
                 />

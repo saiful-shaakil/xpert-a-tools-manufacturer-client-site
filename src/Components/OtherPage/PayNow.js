@@ -36,8 +36,8 @@ const PayNow = () => {
 
   return (
     <div className="pt-36 mx-20">
-      <div>
-        <div className="shadow-lg rounded-2xl w-96 p-4 bg-white relative overflow-hidden">
+      <div className="">
+        <div className="shadow-lg rounded-2xl w-96 mx-auto p-4 bg-white relative overflow-hidden">
           <div className="w-4/6">
             <p className=" text-lg font-pop font-bold text-primary mb-2">
               Hello! {order.name}

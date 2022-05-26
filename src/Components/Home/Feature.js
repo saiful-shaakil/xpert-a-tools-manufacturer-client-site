@@ -3,7 +3,7 @@ import React from "react";
 const Feature = () => {
   return (
     <div className="max-w-screen-xl px-10 bg-white dark:bg-gray-800 mx-auto py-4 sm:px-6 lg:px-8 relative py-26 lg:mt-20">
-      <h1 className="uppercase text-3xl md:text-5xl lg:text-6xl text-primary font-pop font-semibold">
+      <h1 className="uppercase text-3xl md:text-5xl lg:text-6xl text-primary font-pop font-semibold text-center my-10">
         Are you new to starting your tools business?
       </h1>
       <div className="relative">

@@ -125,7 +125,6 @@ const UpdateMyProfile = () => {
                   id="linkedIn"
                   required
                   type="text"
-                  placeholder="LinkedIn Account Link"
                   className="w-full border-2 py-1 px-2 rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"
                 />
               </div>
@@ -137,7 +136,6 @@ const UpdateMyProfile = () => {
                   id="phone"
                   required
                   type="text"
-                  placeholder="+880"
                   className="w-full border-2 py-1 px-2 rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900"
                 />
               </div>

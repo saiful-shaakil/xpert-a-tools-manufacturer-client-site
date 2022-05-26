@@ -20,7 +20,7 @@ const MyPortfolio = () => {
       </p>
       <p className="flex items-center justify-center flex-col">
         <span className="text-xl font-semibold">
-          My recent 3 projects live link
+          My recent 3 projects live link:
         </span>{" "}
         <br />
         <a
