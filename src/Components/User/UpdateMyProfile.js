@@ -46,7 +46,7 @@ const UpdateMyProfile = () => {
   };
   return (
     <div>
-      <div className="mx-10 mt-7 font-ubu text-2xl">
+      <div className="mx-10 mt-7 text-primary font-ubu text-2xl">
         <h1>Update Your Profile Information:</h1>
       </div>
       <section className="p-6 dark:bg-gray-800 dark:text-gray-50">

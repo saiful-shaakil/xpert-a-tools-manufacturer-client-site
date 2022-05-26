@@ -21,7 +21,9 @@ const MakeAdmin = () => {
   };
   return (
     <div className="overflow-x-auto mt-10 mx-10">
-      <h1 className="font-ubu font-semibold text-3xl mb-10">All Products:</h1>
+      <h1 className="font-ubu font-semibold text-primary text-3xl mb-10">
+        All User:
+      </h1>
       <table className="table table-zebra w-full">
         <thead>
           <tr>

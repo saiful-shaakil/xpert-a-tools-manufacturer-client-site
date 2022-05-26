@@ -38,7 +38,7 @@ const AddProduct = () => {
                 <div className="w-full border-t border-gray-300"></div>
               </div>
               <div className="relative flex justify-center text-sm leading-5">
-                <span className="px-2  text-2xl font-ubu bg-white">
+                <span className="px-2 text-primary text-2xl font-ubu bg-white">
                   Add a New Product
                 </span>
               </div>

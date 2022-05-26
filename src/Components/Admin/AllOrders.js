@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import ConfirmCancelOrder from "./ConfirmCancelOrder";
 
 const AllOrders = () => {
   const [orders, setOrders] = useState([]);
+  const [confirm, setConfirm] = useState(null);
   useEffect(() => {
     fetch("http://localhost:5000/all-orders")
       .then((res) => res.json())
@@ -21,7 +23,9 @@ const AllOrders = () => {
   };
   return (
     <div className="mx-10 mt-6">
-      <h1 className="text-2xl font-semibold font-ubu">All Orders: </h1>
+      <h1 className="text-2xl font-semibold text-primary font-ubu">
+        All Orders:{" "}
+      </h1>
       <div>
         {
           <div className="container mx-auto px-4 sm:px-8">
@@ -65,7 +69,13 @@ const AllOrders = () => {
                           scope="col"
                           className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal"
                         >
-                          Status
+                          Product Status
+                        </th>
+                        <th
+                          scope="col"
+                          className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal"
+                        >
+                          Action
                         </th>
                         <th
                           scope="col"
@@ -129,20 +139,60 @@ const AllOrders = () => {
                               </span>
                             </span>
                           </td>
-                          <td className="px-5 py-5  bg-white text-sm">
-                            <span className="relative inline-block px-3 py-1 font-semibold text-red-900 leading-tight">
+                          <td className="px-5 py-5 border-b border-gray-200  bg-white text-sm">
+                            <span
+                              className={`relative inline-block px-3 py-1 font-semibold ${
+                                order.shippingStatus === "Shipped"
+                                  ? "text-gray-400"
+                                  : "text-green-900"
+                              } leading-tight`}
+                            >
                               <span
                                 aria-hidden="true"
-                                className="absolute inset-0 bg-red-200 opacity-50 rounded-full"
+                                className={`absolute inset-0 ${
+                                  order.shippingStatus === "Shipped"
+                                    ? "bg-gray-400"
+                                    : "bg-green-200"
+                                } opacity-50 rounded-full`}
                               ></span>
                               <span className="relative">
                                 <button
+                                  disabled={order.paid === false}
                                   onClick={() => shipped(order._id)}
-                                  disabled={order.shippingStatus === "Shipped"}
-                                  className=""
                                 >
-                                  Shipped
+                                  Ship Now
                                 </button>
+                              </span>
+                            </span>
+                          </td>
+                          <td className="px-5 py-5 border-b border-gray-200  bg-white text-sm">
+                            <span
+                              className={`relative inline-block px-3 py-1 font-semibold ${
+                                order.paid === false
+                                  ? "text-red-900  cursor-pointer"
+                                  : "text-gray-400"
+                              } leading-tight`}
+                            >
+                              <span
+                                aria-hidden="true"
+                                className={`absolute inset-0 ${
+                                  order.paid === false
+                                    ? "bg-red-200"
+                                    : "bg-gray-200"
+                                } opacity-50 rounded-full`}
+                              ></span>
+                              <span className="relative">
+                                <label
+                                  for={
+                                    order.paid === false
+                                      ? "delete-order-form-modal"
+                                      : ""
+                                  }
+                                  onClick={() => setConfirm(order)}
+                                  className="cursor-pointer"
+                                >
+                                  Cancel
+                                </label>
                               </span>
                             </span>
                           </td>
@@ -153,6 +203,13 @@ const AllOrders = () => {
                 </div>
               </div>
             </div>
+            {confirm && orders && (
+              <ConfirmCancelOrder
+                order={confirm}
+                orders={orders}
+                setOrders={setOrders}
+              ></ConfirmCancelOrder>
+            )}
           </div>
         }
       </div>

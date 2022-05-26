@@ -92,16 +92,16 @@ const PaymentForm = ({ orderDet }) => {
   };
 
   return (
-    <div className="w-1/2 mx-auto my-10">
+    <div className="w-2/3 md:w-1/2 mx-auto my-10">
       <form className="border-lg" onSubmit={handleSubmit}>
         <CardElement
           options={{
             style: {
               base: {
                 fontSize: "16px",
-                color: "#424770",
+                color: "black",
                 "::placeholder": {
-                  color: "#aab7c4",
+                  color: "black",
                 },
               },
               invalid: {
@@ -111,7 +111,7 @@ const PaymentForm = ({ orderDet }) => {
           }}
         />
         <button
-          className="btn btn-sm btn-success"
+          className="btn mt-3 btn-sm btn-success"
           type="submit"
           disabled={!stripe || !clientSecret}
         >
@@ -119,7 +119,12 @@ const PaymentForm = ({ orderDet }) => {
         </button>
       </form>
       {cardError && <p className="text-red-600">{cardError}</p>}
-      {paymentSuccess && <p className="text-green-600">{paymentSuccess}</p>}
+      {paymentSuccess && (
+        <p className="text-green-600">
+          {paymentSuccess}. Your transaction Id is{" "}
+          <span className="text-primary">{transactionId}</span>
+        </p>
+      )}
     </div>
   );
 };

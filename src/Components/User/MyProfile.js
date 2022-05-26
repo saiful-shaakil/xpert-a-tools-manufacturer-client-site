@@ -65,7 +65,7 @@ const MyProfile = () => {
           <div className="rounded-lg bg-pink-100 dark:bg-white p-2 w-full mb-4">
             <div className=" text-sm text-black dark:text-black">
               <p className="">
-                <span className="font-bold">Instituation:</span>
+                <span className="font-bold">Instituation: </span>
                 {profile.instituation ? profile.instituation : "Unknown"}
               </p>
               <p className=" my-3">

@@ -78,6 +78,14 @@ function App() {
             }
           ></Route>
           <Route
+            path="/dashboard/payment/:id"
+            element={
+              <RequireAuth>
+                <PayNow></PayNow>
+              </RequireAuth>
+            }
+          ></Route>
+          <Route
             path="/dashboard/all-user"
             element={
               <RequireAdmin>
@@ -98,7 +106,6 @@ function App() {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/my-profile" element={<MyProfile />}></Route>
         <Route path="/my-portfolio" element={<MyPortfolio />}></Route>
-        <Route path="/payment/:id" element={<PayNow />}></Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
       <ToastContainer />

@@ -26,11 +26,13 @@ const MyOrders = () => {
   }
 
   const payNow = (id) => {
-    navigate(`/payment/${id}`);
+    navigate(`/dashboard/payment/${id}`);
   };
   return (
     <div className="mx-10 mt-6">
-      <h1 className="text-2xl font-semibold font-ubu">Your Orders: </h1>
+      <h1 className="text-2xl font-semibold text-primary font-ubu">
+        Your Orders:{" "}
+      </h1>
       <div>
         {
           <div className="container mx-auto px-4 sm:px-8">
@@ -113,8 +115,11 @@ const MyOrders = () => {
                                 className="absolute inset-0 bg-green-200 opacity-50 rounded-full"
                               ></span>
                               <span className="relative">
-                                <button onClick={() => payNow(order._id)}>
-                                  Pay Now
+                                <button
+                                  disabled={order.paid === true}
+                                  onClick={() => payNow(order._id)}
+                                >
+                                  {order.paid === false ? "Pay Now" : "Paid"}
                                 </button>
                               </span>
                             </span>

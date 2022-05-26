@@ -2,7 +2,7 @@ import React from "react";
 
 const MyPortfolio = () => {
   return (
-    <div className="flex items-center justify-center flex-col pt-28">
+    <div className="flex items-center font-pop justify-center flex-col pt-28">
       <p>
         <span className="text-xl font-semibold">Name:</span> Saiful Islam Shakil
       </p>
@@ -11,7 +11,9 @@ const MyPortfolio = () => {
         saiful_shakil@yahoo.com
       </p>
       <p>
-        <span className="text-xl font-semibold">Educational Instituation:</span>{" "}
+        <span className="text-xl font-semibold">
+          Educational Instituation:{" "}
+        </span>
         Dhaka City College
       </p>
       <p>
