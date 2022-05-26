@@ -1,30 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import LoadingPage from "../Shared/LoadingPage";
 
 const AddProduct = () => {
   const { register, handleSubmit } = useForm();
+  const [loading, setLoading] = useState(false);
+  const imgbbKey = "a6f2cc718c0eea45cff3de7842947fd3";
+  if (loading) {
+    return <LoadingPage></LoadingPage>;
+  }
+  //submitting the form
   const onSubmit = (data) => {
-    const newProduct = {
-      name: data.name,
-      img: data.photo,
-      desc: data.desc,
-      minimumOrder: data.minimum,
-      available: data.available,
-      price: data.price,
-      type: "newArrivals",
-    };
-    fetch("https://still-mesa-94038.herokuapp.com/new-product", {
+    setLoading(true);
+    const formData = new FormData();
+    const url = `https://api.imgbb.com/1/upload?key=${imgbbKey}`;
+    const image = data.photofile[0];
+    formData.append("image", image);
+    fetch(url, {
       method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newProduct),
+      body: formData,
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.acknowledged === true) {
-          toast.success("New product is added in new arrivals list.");
+        if (data.success) {
+          const imageLink = data.data.url;
+          const newProduct = {
+            name: data.name,
+            img: imageLink,
+            desc: data.desc,
+            minimumOrder: data.minimum,
+            available: data.available,
+            price: data.price,
+            type: "newArrivals",
+          };
+          fetch("https://still-mesa-94038.herokuapp.com/new-product", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(newProduct),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.acknowledged === true) {
+                toast.success("New product is added in new arrivals list.");
+                setLoading(false);
+              }
+            });
         }
       });
   };
@@ -81,15 +104,6 @@ const AddProduct = () => {
                   required
                   {...register("minimum")}
                 />
-                <input
-                  className="border-2 rounded-lg my-3 w-full py-2 px-4 "
-                  type="text"
-                  name=""
-                  id="photo"
-                  placeholder="Product Photo URL"
-                  required
-                  {...register("photo")}
-                />
                 <textarea
                   className="border-2 rounded-lg my-3 w-full py-2 px-4 "
                   name=""
@@ -100,6 +114,14 @@ const AddProduct = () => {
                   placeholder="Product Description"
                   {...register("desc")}
                 ></textarea>
+                <input
+                  className="border-2 rounded-lg my-3 w-full py-2 px-4 "
+                  type="file"
+                  name=""
+                  required
+                  id="photofile"
+                  {...register("photofile")}
+                />
                 <input
                   className="btn btn-primary w-full"
                   type="submit"

@@ -17,7 +17,7 @@ const EachProduct = ({ product }) => {
           <div className=" w-full  sm:h-16 rounded-2xl font-semibold">
             {name}
           </div>
-          <div className=" sm:h-16 rounded-2xl">{desc.slice(0, 100)}</div>
+          <div className=" sm:h-16 rounded-2xl">{desc?.slice(0, 100)}</div>
           <div className=" sm:h-3 rounded-2xl">
             <b> Minimum Order: {minimumOrder}</b>
           </div>
