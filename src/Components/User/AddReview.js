@@ -20,7 +20,7 @@ const AddReview = () => {
       rating: rating,
       desc: desc,
     };
-    fetch("http://localhost:5000/add-review", {
+    fetch("https://still-mesa-94038.herokuapp.com/add-review", {
       method: "POST",
       headers: {
         "content-type": "application/json",

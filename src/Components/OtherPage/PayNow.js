@@ -18,7 +18,7 @@ const stripePromise = loadStripe(
 const PayNow = () => {
   const { id } = useParams();
 
-  const url = `http://localhost:5000/orders/${id}`;
+  const url = `https://still-mesa-94038.herokuapp.com/orders/${id}`;
 
   const {
     data: order,

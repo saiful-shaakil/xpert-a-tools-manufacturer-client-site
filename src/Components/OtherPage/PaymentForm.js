@@ -20,7 +20,7 @@ const PaymentForm = ({ orderDet }) => {
 
   useEffect(() => {
     const totalPrice = parseInt(price) * parseInt(quantity);
-    fetch("http://localhost:5000/create-payment-intent", {
+    fetch("https://still-mesa-94038.herokuapp.com/create-payment-intent", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -76,7 +76,7 @@ const PaymentForm = ({ orderDet }) => {
       setIsLoading(true);
       setPaymentSuccess("Congrats! Your payment is success.");
       setTransactionId(paymentIntent.id);
-      fetch(`http://localhost:5000/update-order/${_id}`, {
+      fetch(`https://still-mesa-94038.herokuapp.com/update-order/${_id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",

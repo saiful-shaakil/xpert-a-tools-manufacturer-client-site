@@ -12,7 +12,7 @@ const MyOrders = () => {
   const navigate = useNavigate();
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
-    fetch(`http://localhost:5000/my-orders/${user?.email}`, {
+    fetch(`https://still-mesa-94038.herokuapp.com/my-orders/${user?.email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${token}`,

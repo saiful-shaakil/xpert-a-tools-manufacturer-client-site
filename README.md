@@ -1,13 +1,18 @@
 ## Live Website
 
+[Click Here](https://tools-manufacturer-4e020.web.app/) to go to live website.
+
 ## Quick Overview
 
 - This is a website of a manufacturer company who makes tools such as power saw, drill machine, electric saw, stapler machine
 - Login and user-based authentication with JWT token
 - User can order/purchase products
 - User can add review and see the review in review section
-- User can see what products they ordered in order section
-- Admin can add,delete,shipped products and make a user into admin
+- User can see what products they ordered in order section and also cancel the order
+- User can pay for the order
+- Admin can add,delete,shipped products and make a user into admin.
+- Admin can cancel a order if the buyer not pay
+- Admin route is different than user route
 
 ## Technology Used in this site
 
@@ -18,6 +23,7 @@
 - React Query
 - React Form
 - Tailwind
+- Heroku
 
 ## Available Scripts
 

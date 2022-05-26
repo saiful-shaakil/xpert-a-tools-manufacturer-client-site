@@ -14,7 +14,7 @@ const AddProduct = () => {
       price: data.price,
       type: "newArrivals",
     };
-    fetch("http://localhost:5000/new-product", {
+    fetch("https://still-mesa-94038.herokuapp.com/new-product", {
       method: "POST",
       headers: {
         "content-type": "application/json",

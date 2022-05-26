@@ -15,7 +15,7 @@ const Purchase = () => {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
   useEffect(() => {
-    fetch(`http://localhost:5000/purchase/${id.id}`)
+    fetch(`https://still-mesa-94038.herokuapp.com/purchase/${id.id}`)
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);
@@ -58,7 +58,7 @@ const Purchase = () => {
       status: "Not Faid",
       price: product.price,
     };
-    fetch(`http://localhost:5000/place-order`, {
+    fetch(`https://still-mesa-94038.herokuapp.com/place-order`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

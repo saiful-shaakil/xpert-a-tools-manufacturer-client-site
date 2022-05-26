@@ -29,19 +29,23 @@ const UpdateMyProfile = () => {
         zip: zip,
       };
       updateProfile({ displayName: name });
-      fetch(`http://localhost:5000/update-user-info/${user?.email}`, {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-        body: JSON.stringify(info),
-      })
+      fetch(
+        `https://still-mesa-94038.herokuapp.com/update-user-info/${user?.email}`,
+        {
+          method: "PUT",
+          headers: {
+            "content-type": "application/json",
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+          body: JSON.stringify(info),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           toast.success("Your data is updated.");
-          window.location.reload();
         });
+    } else {
+      toast.error("Please fill the full form.");
     }
   };
   return (

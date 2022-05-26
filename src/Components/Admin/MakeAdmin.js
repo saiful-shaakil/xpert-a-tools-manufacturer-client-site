@@ -4,12 +4,12 @@ import { toast } from "react-toastify";
 const MakeAdmin = () => {
   const [users, setUsers] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/all-users")
+    fetch("https://still-mesa-94038.herokuapp.com/all-users")
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, [users]);
   const makeAdmin = (id, name) => {
-    fetch(`http://localhost:5000/update-user/${id}`, {
+    fetch(`https://still-mesa-94038.herokuapp.com/update-user/${id}`, {
       method: "PUT",
     })
       .then((res) => res.json())
@@ -46,7 +46,7 @@ const MakeAdmin = () => {
               </th>
               <td>{each.name}</td>
               <td>{each.mail}</td>
-              <td>{each.role === "User" ? "User" : "Admin"}</td>
+              <td>{each.role === "Admin" ? "Admin" : "User"}</td>
               <td className="px-5 py-5  bg-white text-sm">
                 <span className="relative inline-block px-3 py-1 font-semibold text-red-900">
                   <span

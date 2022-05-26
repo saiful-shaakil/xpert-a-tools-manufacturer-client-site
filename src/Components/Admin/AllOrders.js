@@ -6,12 +6,12 @@ const AllOrders = () => {
   const [orders, setOrders] = useState([]);
   const [confirm, setConfirm] = useState(null);
   useEffect(() => {
-    fetch("http://localhost:5000/all-orders")
+    fetch("https://still-mesa-94038.herokuapp.com/all-orders")
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [orders]);
   const shipped = (id) => {
-    fetch(`http://localhost:5000/shipped-order/${id}`, {
+    fetch(`https://still-mesa-94038.herokuapp.com/shipped-order/${id}`, {
       method: "PUT",
     })
       .then((res) => res.json())

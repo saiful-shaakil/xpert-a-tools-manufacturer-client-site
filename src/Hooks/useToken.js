@@ -12,7 +12,7 @@ const useToken = (user) => {
           user?.user?.photoURL ||
           "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png",
       };
-      fetch(`http://localhost:5000/add-user/${email}`, {
+      fetch(`https://still-mesa-94038.herokuapp.com/add-user/${email}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",

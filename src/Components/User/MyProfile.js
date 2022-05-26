@@ -9,7 +9,7 @@ const MyProfile = () => {
   const [profile, setProfile] = useState([]);
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
-    fetch(`http://localhost:5000/my-info/${user?.email}`, {
+    fetch(`https://still-mesa-94038.herokuapp.com/my-info/${user?.email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${token}`,
@@ -27,8 +27,8 @@ const MyProfile = () => {
         <div className="w-full pt-1 text-center -mt-16 mx-auto">
           <a href="#" className="block relative">
             <img
-              alt="profil"
-              src={user.photoURL}
+              alt="profile"
+              src={profile.img}
               className="mx-auto object-cover rounded-full h-20 w-20 "
             />
           </a>

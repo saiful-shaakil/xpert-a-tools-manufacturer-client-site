@@ -4,7 +4,7 @@ import EachProduct from "./EachProduct";
 const Featured = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/feature")
+    fetch("https://still-mesa-94038.herokuapp.com/feature")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);

@@ -7,7 +7,7 @@ const useAdmin = (user) => {
     const email = user?.email;
     const token = localStorage.getItem("accessToken");
     if (email) {
-      fetch(`http://localhost:5000/admin/${email}`, {
+      fetch(`https://still-mesa-94038.herokuapp.com/admin/${email}`, {
         method: "GET",
         headers: {
           "content-type": "application/json",

@@ -5,7 +5,7 @@ const ConfirmCancelOrder = ({ order, orders, setOrders }) => {
   const { _id, name } = order;
   //to delete
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/delete-order/${id}`, {
+    fetch(`https://still-mesa-94038.herokuapp.com/delete-order/${id}`, {
       method: "DELETE",
       headers: {
         productId: id,

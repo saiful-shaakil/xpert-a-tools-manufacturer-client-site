@@ -7,7 +7,7 @@ const AllProducts = () => {
   const [all, setAll] = useState([]);
   const [confirm, setConfirm] = useState(null);
   useEffect(() => {
-    fetch("http://localhost:5000/all-products")
+    fetch("https://still-mesa-94038.herokuapp.com/all-products")
       .then((res) => res.json())
       .then((data) => setAll(data));
   }, []);

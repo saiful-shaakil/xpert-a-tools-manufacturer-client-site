@@ -4,7 +4,7 @@ import EachProduct from "./EachProduct";
 const TopRated = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/top-rated")
+    fetch("https://still-mesa-94038.herokuapp.com/top-rated")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
