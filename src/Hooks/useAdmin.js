@@ -7,13 +7,16 @@ const useAdmin = (user) => {
     const email = user?.email;
     const token = localStorage.getItem("accessToken");
     if (email) {
-      fetch(`https://still-mesa-94038.herokuapp.com/admin/${email}`, {
-        method: "GET",
-        headers: {
-          "content-type": "application/json",
-          authorization: `Bearer ${token}`,
-        },
-      })
+      fetch(
+        `https://xpert-tools-manufacturer-server-site.onrender.com/admin/${email}`,
+        {
+          method: "GET",
+          headers: {
+            "content-type": "application/json",
+            authorization: `Bearer ${token}`,
+          },
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           setAdmin(data.admin);

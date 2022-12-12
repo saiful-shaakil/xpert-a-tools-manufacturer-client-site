@@ -30,7 +30,7 @@ const UpdateMyProfile = () => {
       };
       updateProfile({ displayName: name });
       fetch(
-        `https://still-mesa-94038.herokuapp.com/update-user-info/${user?.email}`,
+        `https://xpert-tools-manufacturer-server-site.onrender.com/update-user-info/${user?.email}`,
         {
           method: "PUT",
           headers: {

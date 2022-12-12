@@ -12,12 +12,15 @@ const MyOrders = () => {
   const navigate = useNavigate();
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
-    fetch(`https://still-mesa-94038.herokuapp.com/my-orders/${user?.email}`, {
-      method: "GET",
-      headers: {
-        authorization: `Bearer ${token}`,
-      },
-    })
+    fetch(
+      `https://xpert-tools-manufacturer-server-site.onrender.com/my-orders/${user?.email}`,
+      {
+        method: "GET",
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [user]);

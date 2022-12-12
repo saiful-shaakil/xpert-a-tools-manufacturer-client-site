@@ -7,7 +7,9 @@ const AllProducts = () => {
   const [all, setAll] = useState([]);
   const [confirm, setConfirm] = useState(null);
   useEffect(() => {
-    fetch("https://still-mesa-94038.herokuapp.com/all-products")
+    fetch(
+      "https://xpert-tools-manufacturer-server-site.onrender.com/all-products"
+    )
       .then((res) => res.json())
       .then((data) => setAll(data));
   }, []);

@@ -14,12 +14,6 @@ const Navbar = () => {
       <li className="text-xl 2xl:text-2xl text-primary font-pop">
         <Link to="/">Home</Link>
       </li>
-      <li className="text-xl 2xl:text-2xl text-info font-pop">
-        <Link to="/blogs">Blogs</Link>
-      </li>
-      <li className="text-xl 2xl:text-2xl text-info font-pop">
-        <Link to="/my-portfolio">My Portfolio</Link>
-      </li>
       {user && (
         <li className="text-xl 2xl:text-2xl text-info font-pop">
           <Link to="/dashboard">Dasboard</Link>
@@ -42,7 +36,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar fixed z-50 text-black px-4 lg:px-10">
+    <div className="navbar bg-white fixed z-50 text-black px-4 lg:px-10">
       <div className="navbar-start" style={{ width: "30%" }}>
         <div className="dropdown">
           <label tabIndex="0" className="btn btn-ghost lg:hidden">

@@ -20,14 +20,17 @@ const PaymentForm = ({ orderDet }) => {
 
   useEffect(() => {
     const totalPrice = parseInt(price) * parseInt(quantity);
-    fetch("https://still-mesa-94038.herokuapp.com/create-payment-intent", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-      body: JSON.stringify({ totalPrice }),
-    })
+    fetch(
+      "https://xpert-tools-manufacturer-server-site.onrender.com/create-payment-intent",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+        body: JSON.stringify({ totalPrice }),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         setIsLoading(false);
@@ -76,14 +79,17 @@ const PaymentForm = ({ orderDet }) => {
       setIsLoading(true);
       setPaymentSuccess("Congrats! Your payment is success.");
       setTransactionId(paymentIntent.id);
-      fetch(`https://still-mesa-94038.herokuapp.com/update-order/${_id}`, {
-        method: "PATCH",
-        headers: {
-          "content-type": "application/json",
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-        body: JSON.stringify({ transId: paymentIntent.id }),
-      })
+      fetch(
+        `https://xpert-tools-manufacturer-server-site.onrender.com/update-order/${_id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "content-type": "application/json",
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+          body: JSON.stringify({ transId: paymentIntent.id }),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           setIsLoading(false);
@@ -98,6 +104,9 @@ const PaymentForm = ({ orderDet }) => {
           options={{
             style: {
               base: {
+                padding: "12px",
+                borderRadius: "5px",
+                backgroundColor: "#FDE0D9",
                 fontSize: "16px",
                 color: "black",
                 "::placeholder": {

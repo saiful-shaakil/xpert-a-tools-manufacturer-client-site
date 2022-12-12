@@ -4,7 +4,7 @@ import EachReview from "./EachReview";
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    fetch("https://still-mesa-94038.herokuapp.com/reviews")
+    fetch("https://xpert-tools-manufacturer-server-site.onrender.com/reviews")
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, []);

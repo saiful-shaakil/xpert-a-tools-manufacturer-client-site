@@ -9,12 +9,15 @@ const MyProfile = () => {
   const [profile, setProfile] = useState([]);
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
-    fetch(`https://still-mesa-94038.herokuapp.com/my-info/${user?.email}`, {
-      method: "GET",
-      headers: {
-        authorization: `Bearer ${token}`,
-      },
-    })
+    fetch(
+      `https://xpert-tools-manufacturer-server-site.onrender.com/my-info/${user?.email}`,
+      {
+        method: "GET",
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => setProfile(data));
   }, [user]);

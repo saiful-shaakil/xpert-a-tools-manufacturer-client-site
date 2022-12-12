@@ -5,12 +5,15 @@ const ConfirmDelete = ({ product, allProduct, setAll }) => {
   const { _id, name, available } = product;
   //to delete
   const handleDelete = (id) => {
-    fetch(`https://still-mesa-94038.herokuapp.com/delete-product/${id}`, {
-      method: "DELETE",
-      headers: {
-        productId: id,
-      },
-    })
+    fetch(
+      `https://xpert-tools-manufacturer-server-site.onrender.com/delete-product/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          productId: id,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount) {

@@ -3,18 +3,23 @@ import { toast } from "react-toastify";
 
 const MakeAdmin = () => {
   const [users, setUsers] = useState([]);
+  const [change, setChange] = useState(false);
   useEffect(() => {
-    fetch("https://still-mesa-94038.herokuapp.com/all-users")
+    fetch("https://xpert-tools-manufacturer-server-site.onrender.com/all-users")
       .then((res) => res.json())
       .then((data) => setUsers(data));
-  }, [users]);
+  }, [change]);
   const makeAdmin = (id, name) => {
-    fetch(`https://still-mesa-94038.herokuapp.com/update-user/${id}`, {
-      method: "PUT",
-    })
+    fetch(
+      `https://xpert-tools-manufacturer-server-site.onrender.com/update-user/${id}`,
+      {
+        method: "PUT",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged === true) {
+          setChange(!change);
           toast.success(`${name} is a Admin now.`);
         }
       });

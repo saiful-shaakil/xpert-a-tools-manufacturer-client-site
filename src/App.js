@@ -12,7 +12,6 @@ import NewArrivalsProducts from "./Components/Home/NewArrivalsProducts";
 import TopRated from "./Components/Home/TopRated";
 import LandingPage from "./Components/LandingPage/LandingPage";
 import Blogs from "./Components/OtherPage/Blogs";
-import MyPortfolio from "./Components/OtherPage/MyPortfolio";
 import PayNow from "./Components/OtherPage/PayNow";
 import Purchase from "./Components/Purchase/Purchase";
 import Navbar from "./Components/Shared/Navbar";
@@ -106,7 +105,6 @@ function App() {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/update-my-profile" element={<UpdateMyProfile />}></Route>
         <Route path="/my-profile" element={<MyProfile />}></Route>
-        <Route path="/my-portfolio" element={<MyPortfolio />}></Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
       <ToastContainer />

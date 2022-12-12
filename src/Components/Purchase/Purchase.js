@@ -15,7 +15,9 @@ const Purchase = () => {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
   useEffect(() => {
-    fetch(`https://still-mesa-94038.herokuapp.com/purchase/${id.id}`)
+    fetch(
+      `https://xpert-tools-manufacturer-server-site.onrender.com/purchase/${id.id}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);
@@ -58,13 +60,16 @@ const Purchase = () => {
       status: "Not Faid",
       price: product.price,
     };
-    fetch(`https://still-mesa-94038.herokuapp.com/place-order`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(placeDetails),
-    })
+    fetch(
+      `https://xpert-tools-manufacturer-server-site.onrender.com/place-order`,
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(placeDetails),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         toast("Your order is placed.");

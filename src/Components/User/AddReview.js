@@ -24,13 +24,16 @@ const AddReview = () => {
       rating: rating,
       desc: desc,
     };
-    fetch("https://still-mesa-94038.herokuapp.com/add-review", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(review),
-    })
+    fetch(
+      "https://xpert-tools-manufacturer-server-site.onrender.com/add-review",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(review),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         setIsLoading(false);

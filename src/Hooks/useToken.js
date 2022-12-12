@@ -12,13 +12,16 @@ const useToken = (user) => {
           user?.user?.photoURL ||
           "https://cdn-icons-png.flaticon.com/512/149/149071.png",
       };
-      fetch(`https://still-mesa-94038.herokuapp.com/add-user/${email}`, {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(userDetails),
-      })
+      fetch(
+        `https://xpert-tools-manufacturer-server-site.onrender.com/add-user/${email}`,
+        {
+          method: "PUT",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(userDetails),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           setToken(data.token);

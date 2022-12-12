@@ -34,13 +34,16 @@ const AddProduct = () => {
             price: data.price,
             type: "newArrivals",
           };
-          fetch("https://still-mesa-94038.herokuapp.com/new-product", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(newProduct),
-          })
+          fetch(
+            "https://xpert-tools-manufacturer-server-site.onrender.com/new-product",
+            {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(newProduct),
+            }
+          )
             .then((res) => res.json())
             .then((data) => {
               if (data.acknowledged === true) {

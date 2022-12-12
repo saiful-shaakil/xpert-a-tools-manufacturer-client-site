@@ -4,19 +4,26 @@ import ConfirmCancelOrder from "./ConfirmCancelOrder";
 
 const AllOrders = () => {
   const [orders, setOrders] = useState([]);
+  const [change, setChange] = useState(false);
   const [confirm, setConfirm] = useState(null);
   useEffect(() => {
-    fetch("https://still-mesa-94038.herokuapp.com/all-orders")
+    fetch(
+      "https://xpert-tools-manufacturer-server-site.onrender.com/all-orders"
+    )
       .then((res) => res.json())
       .then((data) => setOrders(data));
-  }, [orders]);
+  }, [change]);
   const shipped = (id) => {
-    fetch(`https://still-mesa-94038.herokuapp.com/shipped-order/${id}`, {
-      method: "PUT",
-    })
+    fetch(
+      `https://xpert-tools-manufacturer-server-site.onrender.com/shipped-order/${id}`,
+      {
+        method: "PUT",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged === true) {
+          setChange(!change);
           toast.success("Product is shipped.");
         }
       });
